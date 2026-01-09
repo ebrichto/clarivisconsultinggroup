@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
+import partnershipBg from "@/assets/partnership-bg.png";
 
 const values = [
   {
@@ -114,19 +115,30 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary">
-        <div className="container-narrow mx-auto text-center">
+      <section className="section-padding relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={partnershipBg} 
+            alt="" 
+            className="h-full w-full object-cover"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-primary/85" />
+        </div>
+        
+        <div className="container-narrow relative mx-auto text-center">
           <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-4xl">
             Let Us Partner With You
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/90">
             We would welcome the opportunity to learn about your organization and discuss how we might support your goals.
           </p>
           <div className="mt-8">
             <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
                 Get in Touch
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
             </Button>
           </div>
