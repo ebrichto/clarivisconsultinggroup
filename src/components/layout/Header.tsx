@@ -41,11 +41,22 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <nav className="container-narrow mx-auto flex h-16 items-center justify-between px-4 lg:h-20 lg:px-6">
+    <header 
+      className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      role="banner"
+    >
+      <nav 
+        className="container-narrow mx-auto flex h-16 items-center justify-between px-4 lg:h-20 lg:px-6"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary lg:h-10 lg:w-10">
+        <Link 
+          to="/" 
+          className="flex items-center gap-2 shrink-0"
+          aria-label="Clarivis Consulting Group - Home"
+        >
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary lg:h-10 lg:w-10" aria-hidden="true">
             <span className="font-display text-lg font-bold text-primary-foreground lg:text-xl">C</span>
           </div>
           <div className="hidden sm:block">
@@ -54,41 +65,50 @@ export function Header() {
         </Link>
 
         {/* Horizontal Navigation - Always Visible */}
-        <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide lg:gap-1">
+        <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide lg:gap-1" role="menubar">
           {navItems.map((item) => (
             <div
               key={item.path}
               className="relative"
               onMouseEnter={() => item.children && setOpenDropdown(item.path)}
               onMouseLeave={() => setOpenDropdown(null)}
+              role="none"
             >
               <Link
                 to={item.path}
                 className={cn(
-                  "flex items-center gap-1 px-2 py-2 text-xs font-medium transition-colors rounded-md whitespace-nowrap lg:px-3 lg:text-sm",
+                  "flex items-center gap-1 px-2 py-2 text-xs font-medium transition-colors rounded-md whitespace-nowrap lg:px-3 lg:text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2",
                   isActive(item.path)
                     ? "text-primary bg-secondary"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 )}
+                role="menuitem"
+                aria-haspopup={item.children ? "true" : undefined}
+                aria-expanded={item.children ? openDropdown === item.path : undefined}
               >
                 {item.label}
-                {item.children && <ChevronDown className="h-3 w-3" />}
+                {item.children && <ChevronDown className="h-3 w-3" aria-hidden="true" />}
               </Link>
 
               {/* Dropdown Menu */}
               {item.children && openDropdown === item.path && (
-                <div className="absolute left-0 top-full pt-1 z-50">
+                <div 
+                  className="absolute left-0 top-full pt-1 z-50"
+                  role="menu"
+                  aria-label={`${item.label} submenu`}
+                >
                   <div className="min-w-48 rounded-lg border border-border bg-card p-1.5 shadow-elevated">
                     {item.children.map((child) => (
                       <Link
                         key={child.path}
                         to={child.path}
                         className={cn(
-                          "block rounded-md px-3 py-2 text-sm transition-colors",
+                          "block rounded-md px-3 py-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-accent",
                           location.pathname === child.path
                             ? "text-primary bg-secondary"
                             : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                         )}
+                        role="menuitem"
                       >
                         {child.label}
                       </Link>

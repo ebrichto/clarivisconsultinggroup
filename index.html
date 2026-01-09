@@ -3,23 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clarivis Consulting Group | Healthcare Accreditation & Compliance</title>
-    <meta name="description" content="Clarivis Consulting Group delivers standards-based guidance for healthcare accreditation, regulatory compliance, and operational excellence. Expert consulting for healthcare organizations." />
+    <title>Clarivis Consulting Group | Health Sector Education & Accreditation</title>
+    <meta name="description" content="Clarivis Consulting Group delivers clear guidance for health sector education programs — accreditation readiness, compliance consulting, and government contract support." />
     <meta name="author" content="Clarivis Consulting Group, LLC" />
-    <meta name="keywords" content="healthcare consulting, accreditation, compliance, Joint Commission, CARF, healthcare advisory, regulatory compliance" />
-    <link rel="canonical" href="https://clarivisconsulting.com" />
-
-    <meta property="og:title" content="Clarivis Consulting Group | Healthcare Accreditation & Compliance" />
-    <meta property="og:description" content="Clear, standards-based guidance to help healthcare programs achieve compliance, operational readiness, and sustainable success." />
+    <meta name="keywords" content="health education consulting, accreditation readiness, compliance consulting, education program advisory, regulatory compliance, government contracts" />
+    <link rel="canonical" href="https://clarivisgroup.com" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1a3a4a" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Clarivis Consulting Group | Health Sector Education & Accreditation" />
+    <meta property="og:description" content="Clear guidance to help health sector education programs achieve compliance, operational readiness, and sustainable success." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://clarivisgroup.com" />
+    <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+    <meta property="og:site_name" content="Clarivis Consulting Group" />
+    <meta property="og:locale" content="en_US" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@ClarivesConsulting" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="Clarivis Consulting Group" />
+    <meta name="twitter:description" content="Health sector education accreditation, compliance, and advisory services." />
+    <meta name="twitter:image" content="https://clarivisgroup.com/og-image.png" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Clarivis Consulting Group, LLC",
+        "description": "Health sector education accreditation, compliance, and program advisory services.",
+        "url": "https://clarivisgroup.com",
+        "telephone": "+1-508-446-4592",
+        "email": "ebrichto@clarivisgroup.com",
+        "areaServed": "United States",
+        "serviceType": ["Accreditation Consulting", "Compliance Consulting", "Education Program Advisory", "Government Contract Support"]
+      }
+    </script>
+
+    <!-- GitHub Pages SPA redirect script -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License - https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </head>
 
   <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center;">
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to use Clarivis Consulting Group website.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
