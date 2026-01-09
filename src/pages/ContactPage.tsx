@@ -57,10 +57,10 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
                     <a
-                      href="mailto:info@clarivisconsulting.com"
+                      href="mailto:ebrichto@clarivisgroup.com"
                       className="text-muted-foreground hover:text-accent"
                     >
-                      info@clarivisconsulting.com
+                      ebrichto@clarivisgroup.com
                     </a>
                   </div>
                 </div>
@@ -72,10 +72,10 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
                     <a
-                      href="tel:+1-555-123-4567"
+                      href="tel:+1-508-446-4592"
                       className="text-muted-foreground hover:text-accent"
                     >
-                      (555) 123-4567
+                      (508) 446-4592
                     </a>
                   </div>
                 </div>
