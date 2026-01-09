@@ -1,73 +1,166 @@
-# Welcome to your Lovable project
+# Clarivis Consulting Group
 
-## Project info
+Professional website for **Clarivis Consulting Group, LLC** — providing education, accreditation, compliance, and program advisory services to health sector education programs.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Clarivis Consulting Group](https://img.shields.io/badge/Clarivis-Consulting%20Group-1a3a4a?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss)
 
-## How can I edit this code?
+## 🏢 About Clarivis
 
-There are several ways of editing your application.
+Clarivis Consulting Group, LLC provides education, accreditation, compliance, and program advisory services to public and private organizations. Our services include:
 
-**Use Lovable**
+- **Accreditation Readiness** — Self-study and progress report support
+- **Site Visit Preparation** — Comprehensive preparation for surveyor visits
+- **Compliance Consulting** — Regulatory guidance for federal, state, and industry requirements
+- **Recruitment Support** — Strategic personnel identification
+- **Government Contract Support** — Federal and state contract pursuit assistance
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+We deliver clear guidance to help health sector education programs achieve compliance, operational readiness, and sustainable success.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Quick Start
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or [bun](https://bun.sh/)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+```bash
+# Clone the repository
+git clone https://github.com/ebrichto/clarivis-consulting.git
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Navigate to the project
+cd clarivis-consulting
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+# Create optimized production build
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview production build locally
+npm run preview
+```
 
-## What technologies are used for this project?
+## 📁 Project Structure
 
-This project is built with:
+```
+├── public/
+│   ├── 404.html          # GitHub Pages SPA redirect
+│   ├── robots.txt        # Search engine directives
+│   └── sitemap.xml       # XML sitemap for SEO
+├── src/
+│   ├── components/
+│   │   ├── layout/       # Header, Footer, Layout components
+│   │   └── ui/           # Reusable UI components (shadcn/ui)
+│   ├── pages/
+│   │   ├── services/     # Individual service pages
+│   │   └── government/   # Government contract pages
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   ├── App.tsx           # Main application component
+│   └── index.css         # Global styles & design tokens
+├── index.html            # HTML template with SEO & structured data
+└── tailwind.config.ts    # Tailwind CSS configuration
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 Technology Stack
 
-## How can I deploy this project?
+| Technology | Purpose |
+|------------|---------|
+| **React 18** | UI framework with concurrent features |
+| **TypeScript** | Type-safe development |
+| **Vite** | Fast build tool and dev server |
+| **Tailwind CSS** | Utility-first CSS framework |
+| **shadcn/ui** | Accessible component library |
+| **React Router** | Client-side routing |
+| **React Query** | Server state management |
+| **Lucide Icons** | Beautiful icon library |
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🔧 Configuration
 
-## Can I connect a custom domain to my Lovable project?
+### Google Analytics
 
-Yes, you can!
+Replace `G-XXXXXXXXXX` in `index.html` with your GA4 Measurement ID:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ID"></script>
+<script>
+  gtag('config', 'G-YOUR-ID');
+</script>
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Contact Form
+
+The contact form submits to [Formspree](https://formspree.io). Update the endpoint in `src/pages/ContactPage.tsx` if needed:
+
+```typescript
+const response = await fetch("https://formspree.io/f/your-form-id", {
+  method: "POST",
+  body: formData,
+});
+```
+
+## 🌐 Deployment
+
+### GitHub Pages
+
+This project is configured for GitHub Pages deployment:
+
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder to GitHub Pages
+3. The `404.html` handles client-side routing
+
+### Other Platforms
+
+The production build (`dist` folder) can be deployed to:
+- Netlify
+- Vercel
+- Cloudflare Pages
+- Any static hosting service
+
+## ♿ Accessibility
+
+This website follows WCAG 2.1 guidelines:
+
+- ✅ Skip-to-content navigation
+- ✅ Semantic HTML structure
+- ✅ ARIA labels and roles
+- ✅ Keyboard navigation support
+- ✅ Focus indicators
+- ✅ Color contrast compliance
+
+## 📊 SEO Features
+
+- Comprehensive meta tags
+- Open Graph and Twitter Cards
+- Schema.org structured data (Organization, ProfessionalService, WebSite)
+- XML sitemap
+- Robots.txt configuration
+- Semantic heading hierarchy
+
+## 📄 License
+
+© 2024 Clarivis Consulting Group, LLC. All rights reserved.
+
+## 📞 Contact
+
+- **Email:** ebrichto@clarivisgroup.com
+- **Phone:** (508) 446-4592
+- **Website:** [clarivisgroup.com](https://clarivisgroup.com)
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev)

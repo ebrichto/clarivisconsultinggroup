@@ -12,6 +12,11 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#1a3a4a" />
     
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    
     <!-- Open Graph -->
     <meta property="og:title" content="Clarivis Consulting Group | Health Sector Education & Accreditation" />
     <meta property="og:description" content="Clear guidance to help health sector education programs achieve compliance, operational readiness, and sustainable success." />
@@ -27,19 +32,113 @@
     <meta name="twitter:description" content="Health sector education accreditation, compliance, and advisory services." />
     <meta name="twitter:image" content="https://clarivisgroup.com/og-image.png" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD) - Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://clarivisgroup.com/#organization",
+        "name": "Clarivis Consulting Group, LLC",
+        "url": "https://clarivisgroup.com",
+        "logo": "https://clarivisgroup.com/logo.png",
+        "description": "Health sector education accreditation, compliance, and program advisory services.",
+        "email": "ebrichto@clarivisgroup.com",
+        "telephone": "+1-508-446-4592",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://github.com/ebrichto"
+        ]
+      }
+    </script>
+
+    <!-- Structured Data (JSON-LD) - Consulting Business -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Clarivis Consulting Group, LLC",
-        "description": "Health sector education accreditation, compliance, and program advisory services.",
+        "@id": "https://clarivisgroup.com/#service",
+        "name": "Clarivis Consulting Group",
+        "description": "Expert consulting for health sector education programs including accreditation readiness, compliance consulting, site visit preparation, and government contract support.",
         "url": "https://clarivisgroup.com",
         "telephone": "+1-508-446-4592",
         "email": "ebrichto@clarivisgroup.com",
-        "areaServed": "United States",
-        "serviceType": ["Accreditation Consulting", "Compliance Consulting", "Education Program Advisory", "Government Contract Support"]
+        "priceRange": "$$",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "serviceType": [
+          "Accreditation Readiness",
+          "Self-Study Support",
+          "Site Visit Preparation",
+          "Progress Report Preparation",
+          "Compliance Consulting",
+          "Recruitment Support",
+          "Government Contract Support"
+        ],
+        "knowsAbout": [
+          "Healthcare Education Accreditation",
+          "Regulatory Compliance",
+          "Program Advisory",
+          "Federal Contract Pursuit"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Consulting Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Accreditation Readiness",
+                "description": "Comprehensive preparation including self-study and progress report support for health sector education programs."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Compliance Consulting",
+                "description": "Regulatory guidance to ensure organizations meet federal, state, and industry requirements."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Government Contract Support",
+                "description": "Strategic support for pursuing and executing federal and state education program contracts."
+              }
+            }
+          ]
+        }
       }
+    </script>
+
+    <!-- Structured Data (JSON-LD) - WebSite with SearchAction -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Clarivis Consulting Group",
+        "url": "https://clarivisgroup.com",
+        "publisher": {
+          "@id": "https://clarivisgroup.com/#organization"
+        }
+      }
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <!-- Replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
     </script>
 
     <!-- GitHub Pages SPA redirect script -->
