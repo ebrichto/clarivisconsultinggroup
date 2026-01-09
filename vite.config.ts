@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Base path for GitHub Pages project site
-  base: mode === "production" ? "/clarivisconsultinggroup/" : "/",
+  // Base path for GitHub Pages project site (only when GITHUB_PAGES env var is set)
+  base: process.env.GITHUB_PAGES === "true" ? "/clarivisconsultinggroup/" : "/",
   server: {
     host: "::",
     port: 8080,
