@@ -99,16 +99,16 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section aria-labelledby="services-cta-heading" className="section-padding bg-secondary/50">
+      <section aria-labelledby="services-cta-heading" className="section-padding bg-gradient-hero">
         <div className="container-narrow mx-auto text-center">
-          <h2 id="services-cta-heading" className="font-display text-3xl font-bold text-foreground md:text-4xl">
+          <h2 id="services-cta-heading" className="font-display text-3xl font-bold text-primary-foreground md:text-4xl">
             Need a Customized Solution?
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
             Every organization is unique. Let us design a consulting engagement tailored to your specific needs.
           </p>
           <div className="mt-8">
-            <Button variant="cta" size="xl" asChild>
+            <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
                 Discuss Your Needs
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
