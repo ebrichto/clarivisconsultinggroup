@@ -1,27 +1,37 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, FileCheck, Users, Target, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+// Service images
+import serviceAccreditation from "@/assets/service-accreditation.jpg";
+import serviceCompliance from "@/assets/service-compliance.jpg";
+import serviceRecruitment from "@/assets/service-recruitment.jpg";
+import serviceGovernment from "@/assets/service-government.jpg";
 
 const services = [
   {
-    icon: Shield,
+    image: serviceAccreditation,
     title: "Accreditation Readiness",
     description: "Comprehensive preparation including self-study support and progress report preparation.",
+    alt: "Professional reviewing compliance documents on laptop with digital checklist icons",
   },
   {
-    icon: FileCheck,
+    image: serviceCompliance,
     title: "Compliance Consulting",
     description: "Regulatory guidance to ensure your organization meets all federal, state, and industry requirements.",
+    alt: "Stacked compliance document blocks with checkmark representing organized regulatory compliance",
   },
   {
-    icon: Users,
+    image: serviceRecruitment,
     title: "Recruitment Support",
     description: "Strategic assistance in identifying and securing qualified personnel for your programs.",
+    alt: "Team of professionals collaborating on document review in meeting",
   },
   {
-    icon: Target,
+    image: serviceGovernment,
     title: "Government Contracts",
     description: "Strategic support for pursuing and executing federal and state education program contracts.",
+    alt: "Magnifying glass examining approved compliance documents representing government contract review",
   },
 ];
 
@@ -108,15 +118,22 @@ export default function HomePage() {
             {services.map((service) => (
               <li
                 key={service.title}
-                className="card-hover group rounded-xl border border-border bg-card p-6 shadow-card lg:p-8"
+                className="card-hover group overflow-hidden rounded-xl border border-border bg-card shadow-card"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground" aria-hidden="true">
-                  <service.icon className="h-6 w-6" />
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.alt}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-card-foreground">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-muted-foreground">{service.description}</p>
+                <div className="p-6 lg:p-8">
+                  <h3 className="font-display text-xl font-semibold text-card-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-muted-foreground">{service.description}</p>
+                </div>
               </li>
             ))}
           </ul>
