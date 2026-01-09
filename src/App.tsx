@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 
 // Eager load critical pages
@@ -25,6 +26,8 @@ const TeamingPage = lazy(() => import("./pages/government/TeamingPage"));
 const PostAwardPage = lazy(() => import("./pages/government/PostAwardPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
 
 const queryClient = new QueryClient();
 
@@ -36,36 +39,40 @@ const PageLoader = () => (
 );
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Layout>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/services/accreditation" element={<AccreditationPage />} />
-              <Route path="/services/site-visit" element={<SiteVisitPage />} />
-              <Route path="/services/compliance" element={<CompliancePage />} />
-              <Route path="/services/leadership" element={<LeadershipPage />} />
-              <Route path="/services/training" element={<TrainingPage />} />
-              <Route path="/who-we-serve" element={<WhoWeServePage />} />
-              <Route path="/government" element={<GovernmentPage />} />
-              <Route path="/government/opportunity" element={<OpportunityPage />} />
-              <Route path="/government/proposal" element={<ProposalPage />} />
-              <Route path="/government/teaming" element={<TeamingPage />} />
-              <Route path="/government/post-award" element={<PostAwardPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Layout>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/services/accreditation" element={<AccreditationPage />} />
+                <Route path="/services/site-visit" element={<SiteVisitPage />} />
+                <Route path="/services/compliance" element={<CompliancePage />} />
+                <Route path="/services/leadership" element={<LeadershipPage />} />
+                <Route path="/services/training" element={<TrainingPage />} />
+                <Route path="/who-we-serve" element={<WhoWeServePage />} />
+                <Route path="/government" element={<GovernmentPage />} />
+                <Route path="/government/opportunity" element={<OpportunityPage />} />
+                <Route path="/government/proposal" element={<ProposalPage />} />
+                <Route path="/government/teaming" element={<TeamingPage />} />
+                <Route path="/government/post-award" element={<PostAwardPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Layout>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
