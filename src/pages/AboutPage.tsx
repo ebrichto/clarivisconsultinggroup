@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
 import partnershipBg from "@/assets/partnership-bg.png";
+import ownerProfile from "@/assets/owner-profile.jpg";
 
 const values = [
   {
@@ -81,8 +82,46 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Clarivis */}
+      {/* Leadership */}
       <section className="section-padding bg-background">
+        <div className="container-narrow mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+              Our Leadership
+            </h2>
+          </div>
+
+          <div className="mt-12 grid items-center gap-12 lg:grid-cols-5">
+            <div className="lg:col-span-2">
+              <div className="overflow-hidden rounded-2xl shadow-elevated">
+                <img
+                  src={ownerProfile}
+                  alt="Eric A. Brichto, Esq."
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="lg:col-span-3">
+              <h3 className="font-display text-2xl font-bold text-foreground">
+                Eric A. Brichto, Esq.
+              </h3>
+              <p className="mt-1 text-lg font-medium text-primary">Founder & Principal</p>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Eric A. Brichto, Esq. is an experienced accreditation and regulatory professional with more than a decade of leadership in higher education and healthcare accreditation. He previously served as Chief Accreditation Officer for the Commission on Accreditation of Healthcare Management Education (CAHME), where he oversaw accreditation operations, standards development, international program reviews, and governance initiatives.
+              </p>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Eric has advised hundreds of academic programs on accreditation strategy, compliance, and continuous improvement, and played a key role in designing new accreditation models, mentorship programs, and professional training initiatives. A licensed attorney, he brings a practical, risk-aware approach to accreditation grounded in regulatory compliance, policy development, and organizational strategy.
+              </p>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Eric is a frequent author and presenter on accreditation and quality assurance and is committed to helping institutions navigate accreditation with clarity, efficiency, and confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Clarivis */}
+      <section className="section-padding bg-secondary/50">
         <div className="container-narrow mx-auto">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
