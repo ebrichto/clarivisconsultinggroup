@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const footerLinks = {
   services: [
@@ -22,14 +23,12 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2" aria-label="Clarivis Consulting Group - Home">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary" aria-hidden="true">
-                <span className="font-display text-xl font-bold text-primary-foreground">C</span>
-              </div>
-              <div>
-                <span className="font-display text-xl font-semibold text-foreground">Clarivis</span>
-                <span className="ml-1 text-sm text-muted-foreground">Consulting Group</span>
-              </div>
+            <Link to="/" className="flex items-center" aria-label="Clarivis Consulting Group - Home">
+              <img 
+                src={logo} 
+                alt="Clarivis Consulting Group" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
               Clear guidance for health sector education programs — accreditation, compliance, and operational excellence.

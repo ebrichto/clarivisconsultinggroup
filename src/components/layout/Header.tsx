@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -53,15 +54,14 @@ export function Header() {
         {/* Logo */}
         <Link 
           to="/" 
-          className="flex items-center gap-2 shrink-0"
+          className="flex items-center shrink-0"
           aria-label="Clarivis Consulting Group - Home"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary lg:h-10 lg:w-10" aria-hidden="true">
-            <span className="font-display text-lg font-bold text-primary-foreground lg:text-xl">C</span>
-          </div>
-          <div className="hidden sm:block">
-            <span className="font-display text-lg font-semibold text-foreground lg:text-xl">Clarivis</span>
-          </div>
+          <img 
+            src={logo} 
+            alt="Clarivis Consulting Group" 
+            className="h-10 w-auto lg:h-12"
+          />
         </Link>
 
         {/* Horizontal Navigation - Always Visible */}
