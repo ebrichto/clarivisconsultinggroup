@@ -65,7 +65,7 @@ export function Header() {
         </Link>
 
         {/* Horizontal Navigation - Always Visible */}
-        <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide lg:gap-1" role="menubar">
+        <div className="flex items-center gap-0.5 lg:gap-1" role="menubar">
           {navItems.map((item) => (
             <div
               key={item.path}
