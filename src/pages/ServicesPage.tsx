@@ -6,7 +6,7 @@ const services = [
   {
     icon: Shield,
     title: "Accreditation Readiness",
-    description: "Comprehensive preparation for successful accreditation outcomes.",
+    description: "Comprehensive preparation including self-study and progress report support.",
     path: "/services/accreditation",
   },
   {
@@ -23,8 +23,8 @@ const services = [
   },
   {
     icon: Users,
-    title: "Interim Leadership",
-    description: "Experienced executives providing strategic direction.",
+    title: "Recruitment Support",
+    description: "Strategic assistance in identifying qualified personnel for your programs.",
     path: "/services/leadership",
   },
   {

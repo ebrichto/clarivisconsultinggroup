@@ -6,7 +6,7 @@ const services = [
   {
     icon: Shield,
     title: "Accreditation Readiness",
-    description: "Comprehensive preparation for Joint Commission, CARF, and other healthcare accreditation standards.",
+    description: "Comprehensive preparation including self-study support and progress report preparation.",
   },
   {
     icon: FileCheck,
@@ -15,19 +15,19 @@ const services = [
   },
   {
     icon: Users,
-    title: "Interim Leadership",
-    description: "Experienced healthcare executives providing strategic direction during transitions.",
+    title: "Recruitment Support",
+    description: "Strategic assistance in identifying and securing qualified personnel for your programs.",
   },
   {
     icon: Target,
     title: "Government Contracts",
-    description: "Strategic support for pursuing and executing federal and state healthcare contracts.",
+    description: "Strategic support for pursuing and executing federal and state education program contracts.",
   },
 ];
 
 const trustIndicators = [
-  "Standards-Based Methodology",
-  "Healthcare Industry Expertise",
+  "Clear, Actionable Guidance",
+  "Health Sector Education Expertise",
   "Proven Compliance Track Record",
   "Executive-Level Partnership",
 ];
@@ -42,7 +42,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="animate-fade-up">
               <span className="inline-block rounded-full bg-accent/20 px-4 py-1.5 text-sm font-medium text-accent-foreground/90 backdrop-blur">
-                Healthcare Accreditation & Compliance
+                Education, Accreditation & Compliance
               </span>
             </div>
             <h1 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight text-primary-foreground md:text-5xl lg:text-6xl animate-fade-up" style={{ animationDelay: "0.1s" }}>
@@ -51,7 +51,7 @@ export default function HomePage() {
               <span className="text-accent-foreground/80">Confidence in Results.</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80 md:text-xl animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              Clarivis Consulting Group delivers standards-based guidance to help healthcare organizations achieve accreditation, regulatory compliance, and operational excellence.
+              Clarivis Consulting Group delivers clear guidance to help health sector education programs achieve accreditation, regulatory compliance, and operational excellence.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-up" style={{ animationDelay: "0.3s" }}>
               <Button variant="hero" size="xl" asChild>
@@ -97,7 +97,7 @@ export default function HomePage() {
         <div className="container-narrow mx-auto">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Comprehensive Healthcare Consulting
+              Comprehensive Education Program Consulting
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               From accreditation readiness to government contract pursuit, we provide the expertise your organization needs.
@@ -138,14 +138,14 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-                Standards-Based Guidance You Can Trust
+                Clear Guidance You Can Trust
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                We understand that healthcare compliance is not just about meeting requirements—it is about building sustainable programs that protect patients, staff, and your organization's mission.
+                We understand that education program compliance is not just about meeting requirements—it is about building sustainable programs that support learners, faculty, and your organization's mission.
               </p>
               <ul className="mt-8 space-y-4">
                 {[
-                  "Deep expertise in healthcare accreditation standards",
+                  "Deep expertise in health sector education accreditation",
                   "Practical, actionable compliance roadmaps",
                   "Partnership approach with your leadership team",
                   "Focus on sustainable operational success",

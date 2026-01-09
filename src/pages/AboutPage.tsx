@@ -43,10 +43,10 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Clarivis Consulting Group, LLC provides healthcare accreditation, compliance, and program advisory services to public and private organizations. Our services include accreditation readiness and self-study support, site visit preparation, regulatory compliance consulting, interim and advisory program leadership, and strategic support for government contract pursuits.
+              Clarivis Consulting Group, LLC provides education, accreditation, compliance, and program advisory services to public and private organizations. Services include accreditation readiness and self-study support, site visit preparation, progress report preparation, recruitment support, regulatory compliance consulting, and strategic support for government contract pursuits.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              We deliver clear, standards-based guidance to help healthcare programs achieve compliance, operational readiness, and sustainable success.
+              Clarivis delivers clear guidance to help health sector education programs achieve compliance, operational readiness, and sustainable success.
             </p>
           </div>
         </div>
