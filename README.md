@@ -7,7 +7,7 @@ Professional website for **Clarivis Consulting Group, LLC** — providing educat
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss)
 
-🌐 **Live Site:** [ebrichto.github.io/clarivis-consulting](https://ebrichto.github.io/clarivis-consulting/)
+🌐 **Live Site:** [clarivisgroup.com](https://clarivisgroup.com/)
 
 ## 🏢 About Clarivis
 
