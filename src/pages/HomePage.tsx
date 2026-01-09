@@ -153,43 +153,37 @@ export default function HomePage() {
       {/* Value Proposition */}
       <section aria-labelledby="value-heading" className="section-padding bg-secondary/50">
         <div className="container-narrow mx-auto">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <h2 id="value-heading" className="font-display text-3xl font-bold text-foreground md:text-4xl">
-                Clear Guidance You Can Trust
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                We understand that education program compliance is not just about meeting requirements—it is about building sustainable programs that support learners, faculty, and your organization's mission.
-              </p>
-              <ul className="mt-8 space-y-4" role="list">
-                {[
-                  "Deep expertise in health sector education accreditation",
-                  "Practical, actionable compliance roadmaps",
-                  "Partnership approach with your leadership team",
-                  "Focus on sustainable operational success",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8">
-                <Button variant="cta" size="lg" asChild>
-                  <Link to="/about">Learn About Our Approach</Link>
-                </Button>
-              </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-primary/10 px-4 py-2">
+              <CheckCircle2 className="h-5 w-5 text-primary" aria-hidden="true" />
+              <span className="text-sm font-semibold text-primary">20+ Years of Combined Experience</span>
             </div>
-            <div className="relative" aria-hidden="true">
-              <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-hero shadow-elevated">
-                <div className="flex h-full items-center justify-center p-8">
-                  <div className="text-center">
-                    <div className="text-6xl font-display font-bold text-primary-foreground/90">20+</div>
-                    <div className="mt-2 text-lg text-primary-foreground/70">Years of Combined Experience</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2 id="value-heading" className="font-display text-3xl font-bold text-foreground md:text-4xl">
+              Clear Guidance You Can Trust
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              We understand that education program compliance is not just about meeting requirements—it is about building sustainable programs that support learners, faculty, and your organization's mission.
+            </p>
+          </div>
+
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" role="list">
+            {[
+              "Deep expertise in health sector education accreditation",
+              "Practical, actionable compliance roadmaps",
+              "Partnership approach with your leadership team",
+              "Focus on sustainable operational success",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 rounded-lg bg-background p-4 shadow-sm">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+                <span className="text-sm text-foreground">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 text-center">
+            <Button variant="cta" size="lg" asChild>
+              <Link to="/about">Learn About Our Approach</Link>
+            </Button>
           </div>
         </div>
       </section>
