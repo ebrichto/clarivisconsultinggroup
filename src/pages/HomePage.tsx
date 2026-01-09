@@ -7,6 +7,7 @@ import serviceAccreditation from "@/assets/service-accreditation.jpg";
 import serviceCompliance from "@/assets/service-compliance.jpg";
 import serviceRecruitment from "@/assets/service-recruitment.jpg";
 import serviceGovernment from "@/assets/service-government.jpg";
+import complianceCtaBg from "@/assets/compliance-cta-bg.jpg";
 
 const services = [
   {
@@ -194,8 +195,15 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section aria-labelledby="cta-heading" className="section-padding bg-primary">
-        <div className="container-narrow mx-auto text-center">
+      <section aria-labelledby="cta-heading" className="section-padding relative overflow-hidden">
+        <img
+          src={complianceCtaBg}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-primary/80" />
+        <div className="container-narrow relative mx-auto text-center">
           <h2 id="cta-heading" className="font-display text-3xl font-bold text-primary-foreground md:text-4xl">
             Ready to Achieve Compliance Excellence?
           </h2>
