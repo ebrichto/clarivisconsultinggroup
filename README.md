@@ -7,6 +7,8 @@ Professional website for **Clarivis Consulting Group, LLC** — providing educat
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss)
 
+🌐 **Live Site:** [ebrichto.github.io/clarivis-consulting](https://ebrichto.github.io/clarivis-consulting/)
+
 ## 🏢 About Clarivis
 
 Clarivis Consulting Group, LLC provides education, accreditation, compliance, and program advisory services to public and private organizations. Our services include:
@@ -107,7 +109,7 @@ Replace `G-XXXXXXXXXX` in `index.html` with your GA4 Measurement ID:
 The contact form submits to [Formspree](https://formspree.io). Update the endpoint in `src/pages/ContactPage.tsx` if needed:
 
 ```typescript
-const response = await fetch("https://formspree.io/f/your-form-id", {
+const response = await fetch("https://formspree.io/f/xnjjajdj", {
   method: "POST",
   body: formData,
 });
@@ -117,19 +119,24 @@ const response = await fetch("https://formspree.io/f/your-form-id", {
 
 ### GitHub Pages
 
-This project is configured for GitHub Pages deployment:
+This project is configured for GitHub Pages deployment with the `/clarivis-consulting/` base path.
 
+**Automatic Deployment:**
+1. Push to the `main` branch
+2. GitHub Actions will build and deploy automatically (if configured)
+
+**Manual Deployment:**
 1. Build the project: `npm run build`
-2. Deploy the `dist` folder to GitHub Pages
-3. The `404.html` handles client-side routing
+2. Deploy the `dist` folder to the `gh-pages` branch
 
-### Other Platforms
+The `404.html` handles client-side routing for the SPA.
 
-The production build (`dist` folder) can be deployed to:
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Any static hosting service
+### Custom Domain
+
+To use a custom domain (e.g., clarivisgroup.com):
+1. Update `base` in `vite.config.ts` to `"/"`
+2. Update all URLs in `index.html`, `sitemap.xml`, and `robots.txt`
+3. Add a `CNAME` file to the `public` folder with your domain
 
 ## ♿ Accessibility
 
@@ -159,7 +166,8 @@ This website follows WCAG 2.1 guidelines:
 
 - **Email:** ebrichto@clarivisgroup.com
 - **Phone:** (508) 446-4592
-- **Website:** [clarivisgroup.com](https://clarivisgroup.com)
+- **Website:** [ebrichto.github.io/clarivis-consulting](https://ebrichto.github.io/clarivis-consulting/)
+- **GitHub:** [@ebrichto](https://github.com/ebrichto)
 
 ---
 
