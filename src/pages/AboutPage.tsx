@@ -91,8 +91,8 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="mt-12 flex flex-row items-start gap-6">
-            <div className="shrink-0">
+          <div className="mt-12">
+            <div className="float-left mr-6 mb-4">
               <div className="h-40 w-40 overflow-hidden rounded-xl shadow-elevated md:h-56 md:w-56">
                 <img
                   src={ownerProfile}
@@ -116,6 +116,7 @@ export default function AboutPage() {
                 Eric is a frequent author and presenter on accreditation and quality assurance and is committed to helping institutions navigate accreditation with clarity, efficiency, and confidence.
               </p>
             </div>
+            <div className="clear-both"></div>
           </div>
         </div>
       </section>
