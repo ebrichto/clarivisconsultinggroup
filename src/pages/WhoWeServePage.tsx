@@ -68,7 +68,7 @@ export default function WhoWeServePage() {
             Who We Serve
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
-            We partner with healthcare organizations and leaders who are committed to achieving and maintaining the highest standards of compliance and operational excellence.
+            We partner with healthcare and educational organizations who are committed to achieving and maintaining the highest standards of compliance and operational excellence.
           </p>
         </div>
       </section>
