@@ -13,7 +13,7 @@ const services = [
   {
     image: serviceAccreditation,
     title: "Accreditation Readiness",
-    description: "Comprehensive preparation including self-study and progress report support.",
+    description: "Comprehensive preparation including self-study, site visit, and progress report support.",
     path: "/services/accreditation",
     alt: "Professional reviewing compliance documents on laptop with digital checklist icons",
   },
@@ -34,7 +34,7 @@ const services = [
   {
     image: serviceGovernment,
     title: "Recruitment Support",
-    description: "Strategic assistance in identifying qualified personnel for your programs.",
+    description: "Strategic assistance in increasing student applications.",
     path: "/services/leadership",
     alt: "Magnifying glass examining approved compliance documents representing government contract review",
   },
