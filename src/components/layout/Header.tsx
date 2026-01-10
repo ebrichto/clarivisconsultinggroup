@@ -67,7 +67,7 @@ export function Header() {
 
   return (
     <header 
-      className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      className="sticky top-0 z-[60] w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
       role="banner"
     >
       <nav 
@@ -171,25 +171,25 @@ export function Header() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div
-        className={cn(
-          "fixed inset-0 z-40 bg-foreground/20 backdrop-blur-sm transition-opacity lg:hidden",
-          mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-        onClick={() => setMobileMenuOpen(false)}
-        aria-hidden="true"
-      />
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[55] bg-foreground/20 backdrop-blur-sm lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Mobile Menu Panel */}
       <div
         id="mobile-menu"
         className={cn(
-          "fixed top-16 left-0 right-0 bottom-0 z-50 bg-background overflow-y-auto transition-transform duration-300 ease-out lg:hidden",
+          "fixed top-16 left-0 right-0 bottom-0 z-[56] bg-background overflow-y-auto transition-transform duration-300 ease-out lg:hidden",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
         role="dialog"
-        aria-modal="true"
+        aria-modal={mobileMenuOpen}
         aria-label="Mobile navigation"
+        aria-hidden={!mobileMenuOpen}
       >
         <div className="px-4 py-6 pb-safe">
           <nav className="space-y-1">
