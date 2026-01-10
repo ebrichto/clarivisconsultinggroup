@@ -43,24 +43,25 @@ export function Header() {
     return location.pathname === path || location.pathname.startsWith(path + "/");
   };
 
-  const handleToggleMobileMenu = () => {
-    console.log("Hamburger clicked, current state:", mobileMenuOpen);
-    setMobileMenuOpen(prev => {
-      console.log("Setting mobileMenuOpen to:", !prev);
-      return !prev;
-    });
-  };
-
   // Close mobile menu on route change
   useEffect(() => {
-    console.log("Route changed, closing mobile menu");
     setMobileMenuOpen(false);
     setMobileAccordion(null);
   }, [location.pathname]);
 
+  // Close mobile menu when resizing to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    console.log("Mobile menu open state:", mobileMenuOpen);
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -163,11 +164,11 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle - visible below lg breakpoint (1024px) */}
+          {/* Mobile Menu Toggle - Only visible on mobile/tablet (below 1024px) */}
           <button
             type="button"
-            onClick={handleToggleMobileMenu}
-            className="flex lg:hidden items-center justify-center w-11 h-11 rounded-md text-foreground bg-secondary/30 hover:bg-secondary/50 transition-colors active:bg-secondary"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex lg:hidden items-center justify-center w-11 h-11 rounded-md text-foreground bg-secondary/30 hover:bg-secondary/50 active:bg-secondary transition-colors"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
