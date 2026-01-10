@@ -11,7 +11,7 @@ const audiences = [
   {
     icon: Shield,
     title: "Compliance & Quality Leaders",
-    description: "Directors and officers responsible for maintaining organizational compliance and quality standards.",
+    description: "Program directors and officers responsible for maintaining organizational compliance and quality standards.",
     image: audienceCompliance,
     needs: [
       "Standards interpretation and application",
