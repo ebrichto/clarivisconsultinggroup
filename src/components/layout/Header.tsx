@@ -43,14 +43,24 @@ export function Header() {
     return location.pathname === path || location.pathname.startsWith(path + "/");
   };
 
+  const handleToggleMobileMenu = () => {
+    console.log("Hamburger clicked, current state:", mobileMenuOpen);
+    setMobileMenuOpen(prev => {
+      console.log("Setting mobileMenuOpen to:", !prev);
+      return !prev;
+    });
+  };
+
   // Close mobile menu on route change
   useEffect(() => {
+    console.log("Route changed, closing mobile menu");
     setMobileMenuOpen(false);
     setMobileAccordion(null);
   }, [location.pathname]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
+    console.log("Mobile menu open state:", mobileMenuOpen);
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -153,10 +163,11 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle - visible below lg breakpoint (1024px) */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex items-center justify-center w-11 h-11 rounded-md text-foreground hover:bg-secondary/50 transition-colors touch-manipulation"
+            type="button"
+            onClick={handleToggleMobileMenu}
+            className="flex lg:hidden items-center justify-center w-11 h-11 rounded-md text-foreground bg-secondary/30 hover:bg-secondary/50 transition-colors active:bg-secondary"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
