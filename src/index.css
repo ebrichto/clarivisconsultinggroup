@@ -156,7 +156,7 @@
 
 @layer components {
   .section-padding {
-    @apply px-6 py-16 md:px-8 md:py-24 lg:px-12 lg:py-32;
+    @apply px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-24 lg:px-12 lg:py-32;
   }
 
   .container-narrow {
@@ -176,6 +176,20 @@
     transform: translateY(-4px);
     box-shadow: var(--shadow-elevated);
   }
+
+  /* Touch-friendly tap targets (minimum 44px for WCAG) */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Safe area insets for notched devices */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0);
+  }
 }
 
 @layer utilities {
@@ -185,6 +199,28 @@
 
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  /* Prevent text selection on touch */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Smooth scrolling container */
+  .scroll-smooth-touch {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar but keep scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 
   @keyframes fadeUp {
@@ -205,5 +241,18 @@
     to {
       opacity: 1;
     }
+  }
+
+  /* Responsive typography scale */
+  .text-responsive-xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .text-responsive-md {
+    @apply text-lg sm:text-xl md:text-2xl;
   }
 }
