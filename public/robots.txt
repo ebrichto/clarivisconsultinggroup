@@ -1,5 +1,5 @@
 # Clarivis Consulting Group - robots.txt
-# https://ebrichto.github.io/clarivis-consulting/
+# https://clarivisgroup.com
 
 User-agent: Googlebot
 Allow: /
@@ -20,7 +20,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ebrichto.github.io/clarivis-consulting/sitemap.xml
+Sitemap: https://clarivisgroup.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
