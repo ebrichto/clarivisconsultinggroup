@@ -15,24 +15,28 @@ const services = [
     title: "Accreditation Readiness",
     description: "Comprehensive preparation including self-study support and progress report preparation.",
     alt: "Professional reviewing compliance documents on laptop with digital checklist icons",
+    path: "/services/accreditation",
   },
   {
     image: serviceCompliance,
     title: "Compliance Consulting",
     description: "Regulatory guidance to ensure your organization meets all federal, state, and industry requirements.",
     alt: "Stacked compliance document blocks with checkmark representing organized regulatory compliance",
+    path: "/services/compliance",
   },
   {
     image: serviceRecruitment,
     title: "Recruitment Support",
     description: "Strategic assistance in identifying and securing qualified personnel for your programs.",
     alt: "Team of professionals collaborating on document review in meeting",
+    path: "/services/leadership",
   },
   {
     image: serviceGovernment,
     title: "Government Contracts",
     description: "Strategic support for pursuing and executing federal and state education program contracts.",
     alt: "Magnifying glass examining approved compliance documents representing government contract review",
+    path: "/government",
   },
 ];
 
@@ -117,24 +121,26 @@ export default function HomePage() {
 
           <ul className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 md:grid-cols-2 lg:gap-8" role="list">
             {services.map((service) => (
-              <li
-                key={service.title}
-                className="card-hover group overflow-hidden rounded-xl border border-border bg-card shadow-card active:scale-[0.98] transition-transform"
-              >
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.alt}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-4 sm:p-6 lg:p-8">
-                  <h3 className="font-display text-lg sm:text-xl font-semibold text-card-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm sm:text-base text-muted-foreground">{service.description}</p>
-                </div>
+              <li key={service.title}>
+                <Link
+                  to={service.path}
+                  className="card-hover group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card active:scale-[0.98] transition-transform h-full"
+                >
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.alt}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 sm:p-6 lg:p-8">
+                    <h3 className="font-display text-lg sm:text-xl font-semibold text-card-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm sm:text-base text-muted-foreground">{service.description}</p>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>
