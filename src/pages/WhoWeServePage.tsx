@@ -13,6 +13,7 @@ const audiences = [
     title: "Compliance & Quality Leaders",
     description: "Program directors and officers responsible for maintaining organizational compliance and quality standards.",
     image: audienceCompliance,
+    path: "/services/compliance",
     needs: [
       "Standards interpretation and application",
       "Policy and procedure development",
@@ -25,6 +26,7 @@ const audiences = [
     title: "Healthcare Organizations",
     description: "Hospitals, health systems, and clinical facilities seeking accreditation and compliance excellence.",
     image: audienceHealthcare,
+    path: "/services/accreditation",
     needs: [
       "Joint Commission, CARF, or AAAHC accreditation",
       "Regulatory compliance programs",
@@ -37,6 +39,7 @@ const audiences = [
     title: "Government Contractors",
     description: "Organizations pursuing or executing federal and state healthcare contracts.",
     image: audienceGovernment,
+    path: "/government",
     needs: [
       "Contract compliance requirements",
       "Proposal development support",
@@ -49,6 +52,7 @@ const audiences = [
     title: "Healthcare Executives",
     description: "C-suite leaders and program directors driving strategic healthcare initiatives.",
     image: audienceExecutives,
+    path: "/services/leadership",
     needs: [
       "Interim leadership support",
       "Strategic planning guidance",
@@ -78,40 +82,41 @@ export default function WhoWeServePage() {
         <div className="container-narrow mx-auto">
           <div className="grid gap-8 md:grid-cols-2">
             {audiences.map((audience) => (
-              <div
+              <Link
                 key={audience.title}
+                to={audience.path}
                 className="card-hover flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card"
               >
                 <div className="h-40 overflow-hidden">
                   <img
                     src={audience.image}
                     alt={audience.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6 lg:p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <audience.icon className="h-6 w-6" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <audience.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-4 font-display text-xl font-semibold text-card-foreground">
+                    {audience.title}
+                  </h3>
+                  <p className="mt-2 text-muted-foreground">{audience.description}</p>
+                  <div className="mt-6 flex-1">
+                    <h4 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                      Common Needs
+                    </h4>
+                    <ul className="mt-3 space-y-2">
+                      {audience.needs.map((need) => (
+                        <li key={need} className="flex items-start gap-2 text-sm text-card-foreground">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          {need}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-card-foreground">
-                  {audience.title}
-                </h3>
-                <p className="mt-2 text-muted-foreground">{audience.description}</p>
-                <div className="mt-6 flex-1">
-                  <h4 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                    Common Needs
-                  </h4>
-                  <ul className="mt-3 space-y-2">
-                    {audience.needs.map((need) => (
-                      <li key={need} className="flex items-start gap-2 text-sm text-card-foreground">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                        {need}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
