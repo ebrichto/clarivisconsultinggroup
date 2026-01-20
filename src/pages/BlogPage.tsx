@@ -28,7 +28,7 @@ const blogPosts = [
   {
     id: 3,
     title: "Preparing for Your First Accreditation Site Visit: A Comprehensive Guide",
-    excerpt: "With experience overseeing hundreds of site visits during his tenure at CAHME, Eric A. Brichto provides practical guidance for programs preparing for their initial accreditation review.",
+    excerpt: "With experience overseeing hundreds of site visits throughout his career, Eric A. Brichto provides practical guidance for programs preparing for their initial accreditation review.",
     author: "Eric A. Brichto, Esq.",
     date: "December 28, 2025",
     readTime: "10 min read",
@@ -67,8 +67,8 @@ const blogPosts = [
   },
   {
     id: 7,
-    title: "Understanding CAHME Standards: An Insider's Perspective",
-    excerpt: "Having served as CAHME's Chief Accreditation Officer, Eric A. Brichto offers unparalleled insights into how accreditation standards are developed, interpreted, and applied to healthcare management programs.",
+    title: "Understanding Healthcare Accreditation Standards: An Insider's Perspective",
+    excerpt: "Drawing from his extensive experience as a Chief Accreditation Officer, Eric A. Brichto offers unparalleled insights into how accreditation standards are developed, interpreted, and applied to healthcare management programs.",
     author: "Eric A. Brichto, Esq.",
     date: "November 5, 2025",
     readTime: "12 min read",
@@ -128,7 +128,7 @@ const blogPosts = [
   {
     id: 13,
     title: "Building a Culture of Continuous Improvement",
-    excerpt: "Former CAHME Chief Accreditation Officer Eric A. Brichto shares strategies for embedding continuous improvement into organizational culture to support ongoing accreditation success.",
+    excerpt: "Seasoned accreditation expert Eric A. Brichto shares strategies for embedding continuous improvement into organizational culture to support ongoing accreditation success.",
     author: "Eric A. Brichto, Esq.",
     date: "August 15, 2025",
     readTime: "6 min read",
@@ -167,7 +167,7 @@ const BlogPage = () => {
         <title>Blog | Clarivis Consulting Group</title>
         <meta
           name="description"
-          content="Insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., former Chief Accreditation Officer."
+          content="Insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., experienced accreditation professional and licensed attorney."
         />
       </Helmet>
 
@@ -202,12 +202,11 @@ const BlogPage = () => {
               </h3>
               <p className="mt-3 max-w-2xl text-muted-foreground">
                 Eric A. Brichto is a licensed attorney and experienced accreditation professional 
-                who served as Chief Accreditation Officer for CAHME (Commission on Accreditation 
-                of Healthcare Management Education). With decades of experience in health sector 
-                education accreditation and policy development, Eric brings unique insights to 
-                the challenges facing healthcare education programs today. His legal background 
-                combined with hands-on regulatory experience provides a comprehensive perspective 
-                on compliance, governance, and institutional effectiveness.
+                with decades of leadership experience in health sector education accreditation 
+                and policy development. Eric brings unique insights to the challenges facing 
+                healthcare education programs today. His legal background combined with hands-on 
+                regulatory experience provides a comprehensive perspective on compliance, 
+                governance, and institutional effectiveness.
               </p>
             </div>
           </div>
