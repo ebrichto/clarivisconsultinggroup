@@ -27,6 +27,7 @@ const TeamingPage = lazy(() => import("./pages/government/TeamingPage"));
 const PostAwardPage = lazy(() => import("./pages/government/PostAwardPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 
@@ -65,6 +66,7 @@ const App = () => (
                 <Route path="/government/post-award" element={<PostAwardPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/blog" element={<BlogPage />} />
                 <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="/terms" element={<TermsPage />} />
                 <Route path="*" element={<NotFound />} />
