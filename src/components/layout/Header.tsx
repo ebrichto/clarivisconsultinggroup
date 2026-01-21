@@ -36,6 +36,7 @@ const navItems = [
       { label: "Post-Award Support", path: "/government/post-award" },
     ],
   },
+  { label: "Pricing", path: "/pricing" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ] as const;
