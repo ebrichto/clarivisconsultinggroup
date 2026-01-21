@@ -12,6 +12,8 @@ const footerLinks = {
   company: [
     { label: "About Us", path: "/about" },
     { label: "Who We Serve", path: "/who-we-serve" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "Blog", path: "/blog" },
     { label: "Contact", path: "/contact" },
   ],
 };
