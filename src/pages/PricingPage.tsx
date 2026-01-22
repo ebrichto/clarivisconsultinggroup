@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import PricingInquiryForm from "@/components/PricingInquiryForm";
 
 import programOriginationImg from "@/assets/pricing-program-origination.png";
 import postReviewImg from "@/assets/pricing-post-review.png";
@@ -43,7 +44,7 @@ const serviceBundles = [
       "Progress reporting and appeal support",
     ],
     popular: true,
-    bgColor: "bg-gradient-to-br from-primary/20 to-primary/10",
+    bgColor: "bg-gradient-to-br from-gray-50 to-gray-100",
   },
   {
     title: "Post-Decision Support",
@@ -58,7 +59,7 @@ const serviceBundles = [
       "Timeline management and submission readiness review",
     ],
     popular: false,
-    bgColor: "bg-gradient-to-br from-primary/20 to-primary/10",
+    bgColor: "bg-gradient-to-br from-gray-50 to-gray-100",
   },
   {
     title: "Program Origination & Initial Accreditation",
@@ -133,13 +134,20 @@ export default function PricingPage() {
           content="Transparent pricing for accreditation consulting services. From self-study support to full-cycle accreditation guidance."
         />
         <link rel="canonical" href="https://clarivisgroup.com/pricing" />
+        <meta property="og:title" content="Pricing | Clarivis Consulting Group" />
+        <meta property="og:description" content="Transparent pricing for accreditation consulting services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://clarivisgroup.com/pricing" />
+        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pricing | Clarivis Consulting Group" />
+        <meta name="twitter:description" content="Transparent pricing for accreditation consulting services." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero section-padding">
         <div className="container-narrow mx-auto px-4 sm:px-6 text-center">
           <Badge variant="secondary" className="mb-4 bg-white/10 text-white border-white/20">
-            <Sparkles className="mr-1 h-3 w-3" />
             Transparent Pricing
           </Badge>
           <h1 className="text-responsive-xl font-display font-bold tracking-tight text-white">
@@ -167,20 +175,20 @@ export default function PricingPage() {
             {standaloneServices.map((service) => (
               <Card 
                 key={service.title} 
-                className="card-hover border-border/50 overflow-hidden relative group cursor-pointer"
+                className="card-hover border-border/50 overflow-hidden relative group cursor-pointer bg-gradient-to-br from-primary/10 to-primary/5 min-h-[280px]"
               >
                 {/* Background image with fade effect */}
                 <div 
-                  className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                  className="absolute inset-0 opacity-40 group-hover:opacity-50 transition-opacity duration-300"
                   style={{
                     backgroundImage: `url(${service.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
                 
-                <CardHeader className="pb-2 relative z-10">
+                <CardHeader className="pb-2 relative z-10 pt-32">
                   <CardTitle className="text-lg">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative z-10">
@@ -212,13 +220,13 @@ export default function PricingPage() {
               >
                 {bundle.popular && (
                   <div className="absolute top-4 right-4 z-10">
-                    <Badge className="bg-primary text-primary-foreground shadow-lg px-3 py-1">
+                    <Badge className="bg-primary text-primary-foreground shadow-lg px-3 py-1 whitespace-nowrap">
                       Most Popular
                     </Badge>
                   </div>
                 )}
                 <CardHeader className="pb-4">
-                  <CardTitle className="mt-4 text-xl">{bundle.title}</CardTitle>
+                  <CardTitle className={`text-xl ${bundle.popular ? 'mt-8' : 'mt-4'}`}>{bundle.title}</CardTitle>
                   <CardDescription className="text-base">{bundle.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -253,20 +261,20 @@ export default function PricingPage() {
       </section>
 
       {/* Add-On Services */}
-      <section className="relative section-padding overflow-hidden bg-gray-100">
+      <section className="relative section-padding overflow-hidden bg-gradient-hero">
         <div className="container-narrow mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-responsive-lg font-display font-bold text-foreground">
+            <h2 className="text-responsive-lg font-display font-bold text-white">
               Optional Add-On Services
             </h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-white/80 max-w-2xl mx-auto">
               Available individually or bundled with any package
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {addOnServices.map((service) => (
-              <Card key={service.title} className="card-hover border-border/50 bg-white">
+              <Card key={service.title} className="card-hover border-border/50 bg-gray-100">
                 <CardHeader>
                   <CardTitle className="text-lg text-foreground">{service.title}</CardTitle>
                   <CardDescription className="text-muted-foreground">{service.description}</CardDescription>
@@ -293,6 +301,15 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Pricing Inquiry Form */}
+      <section className="section-padding bg-secondary/20">
+        <div className="container-narrow mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mx-auto">
+            <PricingInquiryForm />
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative section-padding overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero"></div>
@@ -312,7 +329,7 @@ export default function PricingPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+                <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
                   <Link to="/services">
                     Explore Our Services
                   </Link>
