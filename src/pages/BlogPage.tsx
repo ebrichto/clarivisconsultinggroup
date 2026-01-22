@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import ownerProfile from "@/assets/owner-profile.jpg";
 
 const blogPosts = [
@@ -244,10 +243,13 @@ const BlogPage = () => {
                   {featuredPost.readTime}
                 </span>
               </div>
-              <Button className="mt-6 gap-2" variant="default">
+              <Link 
+                to={`/blog/${featuredPost.id}`}
+                className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
                 Read Full Article
                 <ArrowRight className="h-4 w-4" />
-              </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -284,14 +286,13 @@ const BlogPage = () => {
                     {post.date}
                   </span>
                 </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="mt-4 gap-1 p-0 text-primary hover:bg-transparent hover:text-primary-dark"
+                <Link 
+                  to={`/blog/${post.id}`}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
                 >
                   Read More
                   <ArrowRight className="h-3 w-3" />
-                </Button>
+                </Link>
               </article>
             ))}
           </div>
@@ -309,13 +310,12 @@ const BlogPage = () => {
             his legal expertise, and his insider knowledge as a former Chief Accreditation 
             Officer to guide your program to success.
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="mt-8 bg-white text-primary hover:bg-white/90"
+          <Link 
+            to="/contact"
+            className="mt-8 inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-base font-medium text-primary hover:bg-white/90 transition-colors"
           >
-            <Link to="/contact">Schedule a Consultation</Link>
-          </Button>
+            Schedule a Consultation
+          </Link>
         </div>
       </section>
     </>

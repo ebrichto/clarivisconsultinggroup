@@ -3,19 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  FileText, 
-  Users, 
-  ClipboardCheck, 
-  Scale, 
-  Rocket, 
-  Check,
-  ArrowRight,
-  Sparkles,
-  Video,
-  GraduationCap,
-  CalendarCheck
-} from "lucide-react";
+import { Check, ArrowRight, Sparkles } from "lucide-react";
 
 import programOriginationImg from "@/assets/pricing-program-origination.png";
 import postReviewImg from "@/assets/pricing-post-review.png";
@@ -29,8 +17,6 @@ const serviceBundles = [
     description: "Ideal for programs seeking expert guidance while retaining internal project ownership.",
     price: "$1,200 – $2,500",
     priceNote: "Varies by program size, complexity, and accreditation history",
-    icon: FileText,
-    image: selfStudyImg,
     features: [
       "Accreditation strategy and readiness assessment",
       "Self-study planning and timeline development",
@@ -39,15 +25,13 @@ const serviceBundles = [
       "Limited consultative support during self-study development",
     ],
     popular: false,
-    bgColor: "bg-gradient-to-br from-amber-50 to-amber-100/80",
+    bgColor: "bg-gradient-to-br from-gray-100 to-gray-200/80",
   },
   {
     title: "Full-Cycle Accreditation Support",
     description: "Comprehensive, hands-on support from self-study through final accreditation decision.",
     price: "$8,500",
     priceNote: "Flat fee (Travel and on-site expenses billed separately, if applicable)",
-    icon: ClipboardCheck,
-    image: support360Img,
     features: [
       "Accreditation strategy guidance",
       "End-to-end self-study support and review",
@@ -59,15 +43,13 @@ const serviceBundles = [
       "Progress reporting and appeal support",
     ],
     popular: true,
-    bgColor: "bg-gradient-to-br from-primary/10 to-primary/5",
+    bgColor: "bg-gradient-to-br from-primary/20 to-primary/10",
   },
   {
     title: "Post-Decision Support",
     description: "Focused support for programs addressing accreditation findings or adverse actions.",
     price: "$1,000 – $1,800",
     priceNote: "Appeals complexity may affect final scope and pricing",
-    icon: Scale,
-    image: postReviewImg,
     features: [
       "Analysis of accreditation decision letters and findings",
       "Progress report and interim report strategy",
@@ -76,15 +58,13 @@ const serviceBundles = [
       "Timeline management and submission readiness review",
     ],
     popular: false,
-    bgColor: "bg-gradient-to-br from-sky-50 to-sky-100/80",
+    bgColor: "bg-gradient-to-br from-primary/20 to-primary/10",
   },
   {
     title: "Program Origination & Initial Accreditation",
     description: "Designed for new or emerging programs preparing for initial accreditation.",
     price: "$1,500 – $7,500",
     priceNote: "Scope varies by program stage and needs",
-    icon: Rocket,
-    image: programOriginationImg,
     features: [
       "Accreditation pathway and eligibility assessment",
       "Standards alignment and curriculum mapping",
@@ -92,7 +72,7 @@ const serviceBundles = [
       "Readiness review prior to application or candidacy submission",
     ],
     popular: false,
-    bgColor: "bg-gradient-to-br from-yellow-50 to-amber-50",
+    bgColor: "bg-gradient-to-br from-gray-50 to-gray-100",
   },
 ];
 
@@ -102,19 +82,16 @@ const addOnServices = [
     description: "Realistic mock site visits designed to prepare faculty, staff, and leadership for peer review.",
     virtualPrice: "$1,500",
     onsitePrice: "$4,000",
-    icon: Video,
   },
   {
     title: "Faculty & Leadership Training",
     description: "Accreditation training sessions for faculty and institutional leadership.",
     price: "$2,500 – $5,000",
-    icon: GraduationCap,
   },
   {
     title: "Annual Reporting & Compliance",
     description: "Ongoing compliance support and annual reporting assistance.",
     price: "$1,000 – $7,500",
-    icon: CalendarCheck,
   },
 ];
 
@@ -122,31 +99,26 @@ const standaloneServices = [
   {
     title: "360° Accreditation Support",
     description: "Full-cycle accreditation consulting from the self-study year through final decision. This includes readiness assessment, documentation strategy, stakeholder coordination, site visit preparation, and ongoing compliance support.",
-    icon: ClipboardCheck,
     image: support360Img,
   },
   {
     title: "Self-Study Review & Gap Analysis",
     description: "Detailed, standards-based review of draft self-studies with written feedback identifying strengths, gaps, risks, and opportunities for improvement—grounded in current accreditation expectations and best practices.",
-    icon: FileText,
     image: selfStudyImg,
   },
   {
     title: "Mock Site Visits",
     description: "Realistic mock site visits designed to prepare faculty, staff, and leadership for peer review. Includes document review, interviews, debriefing, and actionable recommendations to strengthen performance and confidence.",
-    icon: Users,
     image: mockSiteImg,
   },
   {
     title: "Post-Review Support",
     description: "Strategic guidance and hands-on support following accreditation review, including progress reports, interim reports, and appeals. Services include issue analysis, evidence development, narrative refinement, and process management.",
-    icon: Scale,
     image: postReviewImg,
   },
   {
     title: "Program Origination & Readiness",
     description: "Advising for new or emerging programs, including accreditation pathway planning, standards alignment, curriculum mapping, governance structures, and readiness assessments to support successful initial review.",
-    icon: Rocket,
     image: programOriginationImg,
   },
 ];
@@ -171,7 +143,7 @@ export default function PricingPage() {
             Transparent Pricing
           </Badge>
           <h1 className="text-responsive-xl font-display font-bold tracking-tight text-white">
-            Investment in Your <span className="text-accent">Accreditation Success</span>
+            Investment in Your <span className="text-white">Accreditation Success</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80">
             Clear, straightforward pricing for expert accreditation consulting. Choose the level of support that fits your program's needs and budget.
@@ -193,21 +165,25 @@ export default function PricingPage() {
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {standaloneServices.map((service) => (
-              <Card key={service.title} className="card-hover border-border/50 overflow-hidden">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center gap-4 mb-4">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-16 h-16 object-contain"
-                    />
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <service.icon className="h-6 w-6" />
-                    </div>
-                  </div>
+              <Card 
+                key={service.title} 
+                className="card-hover border-border/50 overflow-hidden relative group cursor-pointer"
+              >
+                {/* Background image with fade effect */}
+                <div 
+                  className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                  style={{
+                    backgroundImage: `url(${service.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60" />
+                
+                <CardHeader className="pb-2 relative z-10">
                   <CardTitle className="text-lg">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="relative z-10">
                   <p className="text-sm text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
@@ -235,25 +211,13 @@ export default function PricingPage() {
                 className={`relative card-hover overflow-hidden ${bundle.bgColor} ${bundle.popular ? 'border-primary shadow-lg ring-2 ring-primary/30' : 'border-border/50'}`}
               >
                 {bundle.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                    <Badge className="bg-primary text-primary-foreground shadow-lg">
+                  <div className="absolute top-4 right-4 z-10">
+                    <Badge className="bg-primary text-primary-foreground shadow-lg px-3 py-1">
                       Most Popular
                     </Badge>
                   </div>
                 )}
                 <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-4">
-                      <img 
-                        src={bundle.image} 
-                        alt={bundle.title}
-                        className="w-20 h-20 object-contain"
-                      />
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <bundle.icon className="h-6 w-6" />
-                      </div>
-                    </div>
-                  </div>
                   <CardTitle className="mt-4 text-xl">{bundle.title}</CardTitle>
                   <CardDescription className="text-base">{bundle.description}</CardDescription>
                 </CardHeader>
@@ -289,42 +253,38 @@ export default function PricingPage() {
       </section>
 
       {/* Add-On Services */}
-      <section className="relative section-padding overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero"></div>
-        <div className="relative container-narrow mx-auto px-4 sm:px-6">
+      <section className="relative section-padding overflow-hidden bg-gray-100">
+        <div className="container-narrow mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-responsive-lg font-display font-bold text-white">
+            <h2 className="text-responsive-lg font-display font-bold text-foreground">
               Optional Add-On Services
             </h2>
-            <p className="mt-4 text-white/80 max-w-2xl mx-auto">
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
               Available individually or bundled with any package
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {addOnServices.map((service) => (
-              <Card key={service.title} className="card-hover border-white/20 bg-white/10 backdrop-blur-sm">
+              <Card key={service.title} className="card-hover border-border/50 bg-white">
                 <CardHeader>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/20 text-white mb-4">
-                    <service.icon className="h-6 w-6" />
-                  </div>
-                  <CardTitle className="text-lg text-white">{service.title}</CardTitle>
-                  <CardDescription className="text-white/70">{service.description}</CardDescription>
+                  <CardTitle className="text-lg text-foreground">{service.title}</CardTitle>
+                  <CardDescription className="text-muted-foreground">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   {'virtualPrice' in service ? (
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-white/70">Virtual:</span>
-                        <span className="font-semibold text-white">{service.virtualPrice}</span>
+                        <span className="text-sm text-muted-foreground">Virtual:</span>
+                        <span className="font-semibold text-foreground">{service.virtualPrice}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-white/70">On-site:</span>
-                        <span className="font-semibold text-white">{service.onsitePrice}</span>
+                        <span className="text-sm text-muted-foreground">On-site:</span>
+                        <span className="font-semibold text-foreground">{service.onsitePrice}</span>
                       </div>
                     </div>
                   ) : (
-                    <p className="text-xl font-bold text-white">{service.price}</p>
+                    <p className="text-xl font-bold text-foreground">{service.price}</p>
                   )}
                 </CardContent>
               </Card>
@@ -352,7 +312,7 @@ export default function PricingPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
                   <Link to="/services">
                     Explore Our Services
                   </Link>
