@@ -77,13 +77,35 @@ export default function PricingInquiryForm() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log("Form submitted:", data);
-    toast.success("Thank you for your inquiry! We'll be in touch within 1-2 business days.");
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Pricing Inquiry from ${data.organizationName}`);
+      const servicesText = data.services
+        .map(id => serviceOptions.find(s => s.id === id)?.label)
+        .filter(Boolean)
+        .join(", ");
+      
+      const body = encodeURIComponent(
+        `Organization: ${data.organizationName}\n` +
+        `Contact: ${data.contactName}\n` +
+        `Email: ${data.email}\n` +
+        `Phone: ${data.phone || "Not provided"}\n` +
+        `Program Type: ${data.programType}\n` +
+        `Services of Interest: ${servicesText}\n` +
+        `Timeline: ${data.timeline || "Not specified"}\n` +
+        `\nAdditional Information:\n${data.additionalInfo || "None"}`
+      );
+      
+      // Open mailto link
+      window.location.href = `mailto:ebrichto@clarivisgroup.com?subject=${subject}&body=${body}`;
+      
+      toast.success("Opening your email client. Please send the email to complete your inquiry.");
+      form.reset();
+    } catch (error) {
+      toast.error("Something went wrong. Please email us directly at ebrichto@clarivisgroup.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

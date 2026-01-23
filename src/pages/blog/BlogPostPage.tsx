@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import ownerProfile from "@/assets/owner-profile.jpg";
+import { SocialShareButtons } from "@/components/SocialShareButtons";
 
 export default function BlogPostPage() {
   const { id } = useParams<{ id: string }>();
@@ -68,19 +69,26 @@ export default function BlogPostPage() {
       <article className="py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
-            {/* Author Card */}
-            <div className="mb-12 flex items-center gap-4 rounded-xl border border-border bg-muted/30 p-6">
-              <img
-                src={ownerProfile}
-                alt={post.author}
-                className="h-16 w-16 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-semibold text-foreground">{post.author}</p>
-                <p className="text-sm text-muted-foreground">
-                  Licensed Attorney & Accreditation Consultant
-                </p>
+            {/* Author Card with Social Share */}
+            <div className="mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-xl border border-border bg-muted/30 p-6">
+              <div className="flex items-center gap-4">
+                <img
+                  src={ownerProfile}
+                  alt={post.author}
+                  className="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-semibold text-foreground">{post.author}</p>
+                  <p className="text-sm text-muted-foreground">
+                    Licensed Attorney & Accreditation Consultant
+                  </p>
+                </div>
               </div>
+              <SocialShareButtons 
+                url={`https://clarivisgroup.com/blog/${post.id}`}
+                title={post.title}
+                description={post.excerpt}
+              />
             </div>
 
             {/* Article Body */}
