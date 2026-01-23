@@ -175,24 +175,24 @@ export default function PricingPage() {
             {standaloneServices.map((service) => (
               <Card 
                 key={service.title} 
-                className="card-hover border-border/50 overflow-hidden relative group cursor-pointer bg-gradient-to-br from-primary/10 to-primary/5 min-h-[280px]"
+                className="card-hover border-border/50 overflow-hidden relative group cursor-pointer bg-gradient-to-br from-primary/15 to-primary/5 min-h-[280px]"
               >
                 {/* Background image with fade effect */}
                 <div 
-                  className="absolute inset-0 opacity-40 group-hover:opacity-50 transition-opacity duration-300"
+                  className="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-300"
                   style={{
                     backgroundImage: `url(${service.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
                 
                 <CardHeader className="pb-2 relative z-10 pt-32">
-                  <CardTitle className="text-lg">{service.title}</CardTitle>
+                  <CardTitle className="text-lg font-bold text-foreground drop-shadow-sm">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative z-10">
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                  <p className="text-sm text-foreground/80 font-medium">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -247,12 +247,14 @@ export default function PricingPage() {
                     </ul>
                   </div>
 
-                  <Button asChild className="w-full" variant={bundle.popular ? "default" : "outline"}>
-                    <Link to="/contact">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  <div className="pt-4">
+                    <Button asChild className="w-full sm:w-auto" variant={bundle.popular ? "default" : "outline"}>
+                      <Link to="/contact">
+                        Get Started
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -274,7 +276,7 @@ export default function PricingPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {addOnServices.map((service) => (
-              <Card key={service.title} className="card-hover border-border/50 bg-gray-100">
+              <Card key={service.title} className="card-hover border-border/50 bg-secondary/50">
                 <CardHeader>
                   <CardTitle className="text-lg text-foreground">{service.title}</CardTitle>
                   <CardDescription className="text-muted-foreground">{service.description}</CardDescription>
