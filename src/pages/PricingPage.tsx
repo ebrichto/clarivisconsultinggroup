@@ -276,20 +276,20 @@ export default function PricingPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {addOnServices.map((service) => (
-              <Card key={service.title} className="card-hover border-border/50 bg-secondary/50">
+              <Card key={service.title} className="card-hover border-border/30 bg-white/90 backdrop-blur-sm shadow-md">
                 <CardHeader>
-                  <CardTitle className="text-lg text-foreground">{service.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground">{service.description}</CardDescription>
+                  <CardTitle className="text-lg text-foreground font-bold">{service.title}</CardTitle>
+                  <CardDescription className="text-foreground/70">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   {'virtualPrice' in service ? (
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">Virtual:</span>
+                        <span className="text-sm text-foreground/70">Virtual:</span>
                         <span className="font-semibold text-foreground">{service.virtualPrice}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">On-site:</span>
+                        <span className="text-sm text-foreground/70">On-site:</span>
                         <span className="font-semibold text-foreground">{service.onsitePrice}</span>
                       </div>
                     </div>
