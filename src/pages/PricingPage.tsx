@@ -216,26 +216,26 @@ export default function PricingPage() {
             {serviceBundles.map((bundle) => (
               <Card 
                 key={bundle.title} 
-                className={`relative card-hover overflow-hidden ${bundle.bgColor} ${bundle.popular ? 'border-primary shadow-lg ring-2 ring-primary/30' : 'border-border/50'}`}
+                className={`relative card-hover overflow-hidden flex flex-col ${bundle.bgColor} ${bundle.popular ? 'border-primary shadow-lg ring-2 ring-primary/30' : 'border-border/50'}`}
               >
                 {bundle.popular && (
-                  <div className="absolute top-4 right-4 z-10">
+                  <div className="flex justify-center pt-4">
                     <Badge className="bg-primary text-primary-foreground shadow-lg px-3 py-1 whitespace-nowrap">
                       Most Popular
                     </Badge>
                   </div>
                 )}
                 <CardHeader className="pb-4">
-                  <CardTitle className={`text-xl ${bundle.popular ? 'mt-8' : 'mt-4'}`}>{bundle.title}</CardTitle>
+                  <CardTitle className={`text-xl ${bundle.popular ? '' : 'mt-4'}`}>{bundle.title}</CardTitle>
                   <CardDescription className="text-base">{bundle.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 flex-1 flex flex-col">
                   <div>
                     <p className="text-3xl font-bold text-foreground">{bundle.price}</p>
                     <p className="text-sm text-muted-foreground mt-1">{bundle.priceNote}</p>
                   </div>
                   
-                  <div className="space-y-3">
+                  <div className="space-y-3 flex-1">
                     <p className="text-sm font-medium text-foreground">Includes:</p>
                     <ul className="space-y-2">
                       {bundle.features.map((feature, index) => (
@@ -247,8 +247,8 @@ export default function PricingPage() {
                     </ul>
                   </div>
 
-                  <div className="pt-4">
-                    <Button asChild className="w-full sm:w-auto" variant={bundle.popular ? "default" : "outline"}>
+                  <div className="pt-4 mt-auto">
+                    <Button asChild className="w-full" variant={bundle.popular ? "default" : "outline"}>
                       <Link to="/contact">
                         Get Started
                         <ArrowRight className="ml-2 h-4 w-4" />
