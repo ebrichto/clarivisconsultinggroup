@@ -13,23 +13,67 @@ export default function BlogPostPage() {
     return <Navigate to="/blog" replace />;
   }
 
+  // JSON-LD structured data for better SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": "https://clarivisgroup.com/og-image.png",
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "Eric A. Brichto, Esq.",
+      "jobTitle": "Licensed Attorney & Accreditation Consultant",
+      "description": "Eric Brichto is a licensed attorney and experienced accreditation professional with decades of leadership experience in health sector education accreditation and policy development.",
+      "url": "https://clarivisgroup.com/about",
+      "sameAs": [
+        "https://clarivisgroup.com/blog",
+        "https://clarivisgroup.com/about"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Clarivis Consulting Group",
+      "url": "https://clarivisgroup.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://clarivisgroup.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://clarivisgroup.com/blog/${post.id}`
+    },
+    "keywords": ["Eric Brichto", "Eric A. Brichto", "accreditation", "healthcare education", "compliance", post.category]
+  };
+
   return (
     <>
       <Helmet>
-        <title>{post.title} | Clarivis Consulting Group Blog</title>
-        <meta name="description" content={post.excerpt} />
+        <title>{post.title} | Eric A. Brichto, Esq. | Clarivis Consulting Group</title>
+        <meta name="description" content={`${post.excerpt} Written by Eric Brichto, licensed attorney and accreditation expert.`} />
+        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="keywords" content={`Eric Brichto, Eric A. Brichto, ${post.category}, accreditation, healthcare education, compliance, health sector`} />
         <link rel="canonical" href={`https://clarivisgroup.com/blog/${post.id}`} />
-        <meta property="og:title" content={post.title} />
+        <meta property="og:title" content={`${post.title} | Eric A. Brichto`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://clarivisgroup.com/blog/${post.id}`} />
         <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta property="og:site_name" content="Clarivis Consulting Group" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:title" content={`${post.title} | Eric Brichto`} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content="https://clarivisgroup.com/og-image.png" />
         <meta property="article:published_time" content={post.date} />
-        <meta property="article:author" content={post.author} />
+        <meta property="article:author" content="Eric A. Brichto, Esq." />
+        <meta property="article:section" content={post.category} />
+        <meta property="article:tag" content="Eric Brichto" />
+        <meta property="article:tag" content="accreditation" />
+        <meta property="article:tag" content="healthcare education" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       {/* Hero Section */}

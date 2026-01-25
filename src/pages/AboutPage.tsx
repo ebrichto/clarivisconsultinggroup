@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Target, Eye, Heart, ArrowRight, Sparkles } from "lucide-react";
 import partnershipBg from "@/assets/partnership-bg.png";
@@ -22,9 +23,61 @@ const values = [
   },
 ];
 
+// JSON-LD structured data for Eric Brichto
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Eric A. Brichto, Esq.",
+    "alternateName": ["Eric Brichto", "Eric A. Brichto"],
+    "jobTitle": "Founder & Principal",
+    "description": "Eric A. Brichto is a licensed attorney and experienced accreditation professional with decades of leadership experience in health sector education accreditation, compliance, and policy development. Eric Brichto serves as Founder and Principal of Clarivis Consulting Group.",
+    "url": "https://clarivisgroup.com/about",
+    "image": "https://clarivisgroup.com/owner-profile.jpg",
+    "sameAs": [
+      "https://clarivisgroup.com/blog",
+      "https://clarivisgroup.com/about"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Clarivis Consulting Group",
+      "url": "https://clarivisgroup.com"
+    },
+    "knowsAbout": [
+      "Health Education Accreditation",
+      "Healthcare Management Education",
+      "Regulatory Compliance",
+      "Policy Development",
+      "Accreditation Standards",
+      "Site Visit Preparation"
+    ]
+  }
+};
+
 export default function AboutPage() {
   return (
     <div>
+      <Helmet>
+        <title>About Eric A. Brichto, Esq. | Clarivis Consulting Group</title>
+        <meta
+          name="description"
+          content="Learn about Eric A. Brichto, Esq., licensed attorney and accreditation professional with decades of leadership in health sector education accreditation. Eric Brichto founded Clarivis Consulting Group to provide expert accreditation and compliance guidance."
+        />
+        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="keywords" content="Eric Brichto, Eric A. Brichto, accreditation consultant, licensed attorney, healthcare education, compliance expert, Clarivis Consulting" />
+        <link rel="canonical" href="https://clarivisgroup.com/about" />
+        <meta property="og:title" content="About Eric A. Brichto | Clarivis Consulting Group" />
+        <meta property="og:description" content="Eric A. Brichto, Esq. is a licensed attorney and accreditation expert with decades of experience in health sector education." />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://clarivisgroup.com/about" />
+        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta property="profile:first_name" content="Eric" />
+        <meta property="profile:last_name" content="Brichto" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+
+      {/* Hero */}
       {/* Hero */}
       <section className="bg-gradient-hero py-16 md:py-24">
         <div className="container-narrow mx-auto px-6 text-center">
