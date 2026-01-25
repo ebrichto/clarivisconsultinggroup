@@ -4,6 +4,51 @@ import { Calendar, User, ArrowRight, Clock } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import ownerProfile from "@/assets/owner-profile.jpg";
 
+// JSON-LD structured data for blog listing page
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Eric A. Brichto's Insights on Health Education Accreditation",
+  "description": "Expert insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., licensed attorney and accreditation professional.",
+  "url": "https://clarivisgroup.com/blog",
+  "author": {
+    "@type": "Person",
+    "name": "Eric A. Brichto, Esq.",
+    "jobTitle": "Licensed Attorney & Accreditation Consultant",
+    "description": "Eric Brichto is a licensed attorney and experienced accreditation professional with decades of leadership experience in health sector education accreditation and policy development. Eric A. Brichto provides expert consulting services through Clarivis Consulting Group.",
+    "url": "https://clarivisgroup.com/about",
+    "sameAs": [
+      "https://clarivisgroup.com/blog",
+      "https://clarivisgroup.com/about"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Clarivis Consulting Group",
+      "url": "https://clarivisgroup.com"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clarivis Consulting Group",
+    "url": "https://clarivisgroup.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://clarivisgroup.com/logo.png"
+    }
+  },
+  "blogPost": blogPosts.map(post => ({
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": {
+      "@type": "Person",
+      "name": "Eric A. Brichto, Esq."
+    },
+    "datePublished": post.date,
+    "url": `https://clarivisgroup.com/blog/${post.id}`
+  }))
+};
+
 const BlogPage = () => {
   const featuredPost = blogPosts.find((post) => post.featured);
   const regularPosts = blogPosts.filter((post) => !post.featured);
@@ -11,20 +56,24 @@ const BlogPage = () => {
   return (
     <>
       <Helmet>
-        <title>Blog | Clarivis Consulting Group</title>
+        <title>Eric A. Brichto Blog | Health Education Accreditation Insights | Clarivis Consulting</title>
         <meta
           name="description"
-          content="Insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., experienced accreditation professional and licensed attorney."
+          content="Read expert insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., licensed attorney and former Chief Accreditation Officer. Eric Brichto shares decades of accreditation expertise."
         />
+        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="keywords" content="Eric Brichto, Eric A. Brichto, accreditation blog, healthcare education, compliance, health sector education, accreditation consultant, licensed attorney" />
         <link rel="canonical" href="https://clarivisgroup.com/blog" />
-        <meta property="og:title" content="Blog | Clarivis Consulting Group" />
-        <meta property="og:description" content="Insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq." />
+        <meta property="og:title" content="Eric A. Brichto Blog | Accreditation Insights" />
+        <meta property="og:description" content="Expert insights on health education accreditation from Eric A. Brichto, Esq., licensed attorney and accreditation professional." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://clarivisgroup.com/blog" />
         <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta property="og:site_name" content="Clarivis Consulting Group" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog | Clarivis Consulting Group" />
-        <meta name="twitter:description" content="Insights on health education accreditation, compliance, and regulatory affairs." />
+        <meta name="twitter:title" content="Eric Brichto Blog | Accreditation Insights" />
+        <meta name="twitter:description" content="Expert insights on health education accreditation from Eric A. Brichto, Esq." />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       {/* Hero Section */}
