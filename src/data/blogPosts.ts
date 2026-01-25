@@ -815,4 +815,65 @@ Avoid these data-related mistakes:
 Data should inform decisions and drive improvement, not just satisfy reporting requirements.
     `,
   },
+  {
+    id: 16,
+    title: "The Ten Commandments for Site Visitors",
+    excerpt: "Eric A. Brichto shares the timeless ethical principles that guide accreditation site visitors, originally developed decades ago and still universally relevant today.",
+    author: "Eric A. Brichto, Esq.",
+    date: "January 25, 2026",
+    readTime: "5 min read",
+    category: "Site Visits",
+    featured: false,
+    content: `
+## The Ten Commandments for Site Visitors
+
+These commandments were developed by accreditation organizations long ago and have been adopted, revised, and adjusted by many accreditors over the years. I am not sure who originally developed them. Many accreditors have re-written the principles to remove the biblical tone, but the principles remain universally relevant.
+
+### I. Thou Shalt Maintain Confidentiality
+
+All information, reports, and discussions regarding the institution must be kept strictly confidential. This is the foundation of trust in the accreditation process.
+
+### II. Thou Shalt Be Objective and Impartial
+
+Evaluate the program based on evidence, not personal bias or pre-conceived notions. Your role is to assess against standards, not against your own preferences.
+
+### III. Thou Shalt Prepare Thoroughly
+
+Review the self-study, previous reports, and relevant policies before arriving on site. A well-prepared site visitor asks better questions and makes more informed judgments.
+
+### IV. Thou Shalt Focus on Standards
+
+Base all findings and recommendations solely on the established accreditation standards. Personal opinions about what "should" be done have no place in accreditation evaluation.
+
+### V. Thou Shalt Not Accept Social Invitations
+
+Avoid gifts, meals, or entertainment that could compromise objectivity. Even the appearance of impropriety undermines the integrity of the process.
+
+### VI. Thou Shalt Verify, Not Just Hear
+
+Triangulate evidence through interviews, documentation review, and physical observations. What people say must be corroborated by what you see and read.
+
+### VII. Thou Shalt Be Professional and Tactful
+
+Maintain a courteous, professional demeanor with faculty, staff, and students. You are a guest evaluating their life's work—treat them with respect.
+
+### VIII. Thou Shalt Not Compare to Thy Own Institution
+
+Avoid saying "at my school we do it this way." Every institution is unique, and your job is to evaluate against standards, not against your home institution's practices.
+
+### IX. Thou Shalt Report Conflicts of Interest
+
+Immediately disclose any relationship with the institution that could create a conflict. Transparency protects both you and the integrity of the evaluation.
+
+### X. Thou Shalt Submit Timely Reports
+
+Complete and submit all draft and final reports within the designated timelines. Programs depend on your feedback to move forward with their accreditation journey.
+
+## Why These Principles Endure
+
+Despite being developed decades ago, these commandments remain the ethical bedrock of site visit practice. They protect the integrity of the accreditation process, ensure fairness to programs being evaluated, and maintain public trust in accreditation as a quality assurance mechanism.
+
+Whether you are a seasoned site visitor or preparing for your first visit, keeping these principles at the forefront of your practice will serve you—and the profession—well.
+    `,
+  },
 ];
