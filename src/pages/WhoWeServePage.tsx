@@ -82,16 +82,15 @@ export default function WhoWeServePage() {
         <div className="container-narrow mx-auto">
           <div className="grid gap-8 md:grid-cols-2">
             {audiences.map((audience) => (
-              <Link
+              <div
                 key={audience.title}
-                to={audience.path}
                 className="card-hover flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-card"
               >
                 <div className="h-40 overflow-hidden">
                   <img
                     src={audience.image}
                     alt={audience.title}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6 lg:p-8">
@@ -115,8 +114,15 @@ export default function WhoWeServePage() {
                       ))}
                     </ul>
                   </div>
+                  <Link
+                    to={audience.path}
+                    className="mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors self-start"
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
