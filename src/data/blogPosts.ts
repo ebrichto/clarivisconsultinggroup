@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     date: "January 15, 2026",
     readTime: "8 min read",
     category: "Accreditation",
-    featured: true,
+    featured: false,
     content: `
 ## The Changing Face of Accreditation
 
@@ -823,7 +823,7 @@ Data should inform decisions and drive improvement, not just satisfy reporting r
     date: "January 25, 2026",
     readTime: "5 min read",
     category: "Site Visits",
-    featured: false,
+    featured: true,
     content: `
 ## The Ten Commandments for Site Visitors
 
