@@ -49,9 +49,16 @@ const jsonLd = {
   }))
 };
 
+// Helper function to parse date strings for sorting
+const parseDate = (dateStr: string): Date => {
+  return new Date(dateStr);
+};
+
 const BlogPage = () => {
   const featuredPost = blogPosts.find((post) => post.featured);
-  const regularPosts = blogPosts.filter((post) => !post.featured);
+  const regularPosts = blogPosts
+    .filter((post) => !post.featured)
+    .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
 
   return (
     <>
