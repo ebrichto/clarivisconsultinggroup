@@ -6,16 +6,22 @@
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License - https://github.com/rafgraph/spa-github-pages
-      // This script redirects all 404s to index.html with the path encoded
-      // For root domain deployment (clarivisgroup.com), we redirect to /?/path
+      // Redirects 404s to index.html with path encoded in query string
+      // Primary domain: www.clarivisgroup.com
       
       (function(l) {
-        // Get the path after the domain (e.g., /services/accreditation)
-        var path = l.pathname;
+        // Redirect non-www to www
+        if (l.hostname === 'clarivisgroup.com') {
+          l.replace('https://www.clarivisgroup.com' + l.pathname + l.search + l.hash);
+          return;
+        }
         
-        // Build the redirect URL: domain + /?/ + encoded path
+        // Encode path into query string for SPA routing
+        var path = l.pathname.slice(1); // Remove leading slash
+        if (!path) return; // Don't redirect root
+        
         var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          '/?/' + path.slice(1).replace(/&/g, '~and~') +
+          '/?/' + path.replace(/&/g, '~and~') +
           (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash;
         
@@ -26,7 +32,7 @@
   <body>
     <noscript>
       <h1>Page Not Found</h1>
-      <p>The page you're looking for doesn't exist. <a href="/">Return to homepage</a>.</p>
+      <p>The page you're looking for doesn't exist. <a href="https://www.clarivisgroup.com/">Return to homepage</a>.</p>
     </noscript>
   </body>
 </html>
