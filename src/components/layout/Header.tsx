@@ -204,6 +204,11 @@ export function Header() {
                   </SheetHeader>
 
                   <nav className="flex-1 overflow-y-auto px-5 py-4 pb-safe">
+                    {/* Mobile Search */}
+                    <div className="mb-4">
+                      <SearchBar variant="mobile" onClose={() => setMobileOpen(false)} />
+                    </div>
+
                     <div className="space-y-1">
                       {navItems.map((item) => {
                         const hasChildren = "children" in item && !!item.children;

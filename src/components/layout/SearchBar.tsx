@@ -20,7 +20,7 @@ const sitePages = [
   { title: "Teaming & Partnerships", path: "/government/teaming", keywords: ["teaming", "partnerships", "joint venture", "subcontracting"] },
   { title: "Post-Award Support", path: "/government/post-award", keywords: ["post-award", "contract management", "compliance"] },
   { title: "Pricing", path: "/pricing", keywords: ["pricing", "cost", "packages", "rates"] },
-  { title: "About", path: "/about", keywords: ["about", "team", "company", "history", "eric brichto"] },
+  { title: "About Eric A. Brichto", path: "/about", keywords: ["about", "team", "company", "history", "eric brichto", "brichto"] },
   { title: "Contact", path: "/contact", keywords: ["contact", "email", "phone", "reach out"] },
   { title: "Blog", path: "/blog", keywords: ["blog", "articles", "news", "insights"] },
   { title: "Careers", path: "/careers", keywords: ["careers", "jobs", "employment", "hiring"] },
@@ -33,8 +33,13 @@ interface SearchResult {
   excerpt?: string;
 }
 
-export function SearchBar() {
-  const [isOpen, setIsOpen] = useState(false);
+interface SearchBarProps {
+  variant?: "desktop" | "mobile";
+  onClose?: () => void;
+}
+
+export function SearchBar({ variant = "desktop", onClose }: SearchBarProps) {
+  const [isOpen, setIsOpen] = useState(variant === "mobile");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -66,7 +71,8 @@ export function SearchBar() {
       const titleMatch = post.title.toLowerCase().includes(searchTerm);
       const excerptMatch = post.excerpt.toLowerCase().includes(searchTerm);
       const categoryMatch = post.category.toLowerCase().includes(searchTerm);
-      if (titleMatch || excerptMatch || categoryMatch) {
+      const authorMatch = post.author.toLowerCase().includes(searchTerm);
+      if (titleMatch || excerptMatch || categoryMatch || authorMatch) {
         matchedResults.push({
           title: post.title,
           path: `/blog/${post.id}`,
@@ -88,9 +94,15 @@ export function SearchBar() {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((prev) => Math.max(prev - 1, 0));
-    } else if (e.key === "Enter" && results[selectedIndex]) {
+    } else if (e.key === "Enter") {
       e.preventDefault();
-      navigateToResult(results[selectedIndex]);
+      if (results[selectedIndex]) {
+        navigateToResult(results[selectedIndex]);
+      } else if (query.trim()) {
+        // Navigate to search page with query
+        navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+        closeSearch();
+      }
     } else if (e.key === "Escape") {
       closeSearch();
     }
@@ -105,6 +117,7 @@ export function SearchBar() {
     setIsOpen(false);
     setQuery("");
     setResults([]);
+    onClose?.();
   };
 
   const openSearch = () => {
@@ -112,8 +125,17 @@ export function SearchBar() {
     setTimeout(() => inputRef.current?.focus(), 100);
   };
 
-  // Close on click outside
+  const handleViewAllResults = () => {
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+      closeSearch();
+    }
+  };
+
+  // Close on click outside (desktop only)
   useEffect(() => {
+    if (variant === "mobile") return;
+    
     const handleClickOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         closeSearch();
@@ -123,8 +145,92 @@ export function SearchBar() {
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen]);
+  }, [isOpen, variant]);
 
+  // Mobile variant - full width inline search
+  if (variant === "mobile") {
+    return (
+      <div className="w-full">
+        <div className="flex items-center gap-2 bg-secondary/50 rounded-lg p-2">
+          <Search className="h-5 w-5 text-muted-foreground ml-2 shrink-0" />
+          <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Search pages, articles..."
+            className="flex-1 bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-none py-2"
+            autoFocus
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="flex items-center justify-center w-8 h-8 rounded text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors shrink-0"
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+
+        {/* Results */}
+        {results.length > 0 && (
+          <div className="mt-2 bg-background border border-border rounded-lg max-h-64 overflow-y-auto">
+            {results.map((result, index) => (
+              <button
+                key={result.path}
+                onClick={() => navigateToResult(result)}
+                className={cn(
+                  "w-full text-left px-4 py-3 transition-colors border-b border-border/50 last:border-0",
+                  index === selectedIndex
+                    ? "bg-secondary"
+                    : "hover:bg-secondary/50"
+                )}
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className={cn(
+                      "text-[10px] font-medium uppercase px-1.5 py-0.5 rounded",
+                      result.type === "blog"
+                        ? "bg-accent/20 text-accent-foreground"
+                        : "bg-primary/20 text-primary"
+                    )}
+                  >
+                    {result.type}
+                  </span>
+                  <span className="text-sm font-medium text-foreground truncate">
+                    {result.title}
+                  </span>
+                </div>
+              </button>
+            ))}
+            <button
+              onClick={handleViewAllResults}
+              className="w-full text-center px-4 py-3 text-sm font-medium text-primary hover:bg-secondary/50 transition-colors"
+            >
+              View all results →
+            </button>
+          </div>
+        )}
+
+        {/* No results */}
+        {query.trim() && results.length === 0 && (
+          <div className="mt-2 bg-background border border-border rounded-lg p-4 text-center">
+            <p className="text-sm text-muted-foreground">No results found</p>
+            <button
+              onClick={handleViewAllResults}
+              className="mt-2 text-sm font-medium text-primary hover:underline"
+            >
+              Search all content →
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Desktop variant
   return (
     <div ref={containerRef} className="relative">
       {/* Search trigger button */}
@@ -197,6 +303,12 @@ export function SearchBar() {
                   )}
                 </button>
               ))}
+              <button
+                onClick={handleViewAllResults}
+                className="w-full text-center px-4 py-2 text-sm font-medium text-primary hover:bg-secondary/50 transition-colors border-t border-border"
+              >
+                View all results →
+              </button>
             </div>
           )}
 
@@ -204,6 +316,12 @@ export function SearchBar() {
           {query.trim() && results.length === 0 && (
             <div className="absolute top-full right-0 left-0 mt-1 bg-background border border-border rounded-lg shadow-elevated p-4 text-center">
               <p className="text-sm text-muted-foreground">No results found</p>
+              <button
+                onClick={handleViewAllResults}
+                className="mt-2 text-sm font-medium text-primary hover:underline"
+              >
+                Search all content →
+              </button>
             </div>
           )}
         </div>
