@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -8,6 +9,77 @@ import serviceCompliance from "@/assets/service-compliance.jpg";
 import serviceRecruitment from "@/assets/service-recruitment.jpg";
 import serviceGovernment from "@/assets/service-government.jpg";
 import complianceCtaBg from "@/assets/compliance-cta-bg.jpg";
+
+// Comprehensive JSON-LD for homepage with strong Eric Brichto SEO signals
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://clarivisgroup.com/#organization",
+      "name": "Clarivis Consulting Group, LLC",
+      "alternateName": ["Clarivis Group", "Clarivis", "ClarivIsGroup"],
+      "url": "https://clarivisgroup.com/",
+      "logo": "https://clarivisgroup.com/logo.png",
+      "description": "Health sector education accreditation, compliance, and program advisory services led by Eric A. Brichto, Esq.",
+      "founder": {
+        "@type": "Person",
+        "name": "Eric A. Brichto, Esq.",
+        "alternateName": ["Eric Brichto", "Eric A. Brichto"],
+        "jobTitle": "Founder & Principal",
+        "url": "https://clarivisgroup.com/about"
+      },
+      "sameAs": [
+        "https://clarivisgroup.com/about",
+        "https://clarivisgroup.com/blog"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://clarivisgroup.com/#website",
+      "url": "https://clarivisgroup.com/",
+      "name": "Clarivis Consulting Group",
+      "description": "Expert health education accreditation consulting by Eric A. Brichto, Esq.",
+      "publisher": { "@id": "https://clarivisgroup.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://clarivisgroup.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://clarivisgroup.com/#service",
+      "name": "Clarivis Consulting Group",
+      "description": "Expert consulting for health sector education programs including accreditation readiness, compliance consulting, site visit preparation, and government contract support. Led by Eric A. Brichto, licensed attorney and former Chief Accreditation Officer.",
+      "url": "https://clarivisgroup.com/",
+      "telephone": "+1-508-446-4592",
+      "email": "ebrichto@clarivisgroup.com",
+      "priceRange": "$$",
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "founder": {
+        "@type": "Person",
+        "name": "Eric A. Brichto, Esq.",
+        "alternateName": ["Eric Brichto", "Eric A. Brichto"],
+        "jobTitle": "Founder & Principal",
+        "description": "Licensed attorney and experienced accreditation professional with decades of leadership in health sector education.",
+        "url": "https://clarivisgroup.com/about"
+      },
+      "serviceType": [
+        "Accreditation Readiness",
+        "Self-Study Support", 
+        "Site Visit Preparation",
+        "Progress Report Preparation",
+        "Compliance Consulting",
+        "Recruitment Support",
+        "Government Contract Support"
+      ]
+    }
+  ]
+};
 
 const services = [
   {
@@ -50,6 +122,25 @@ const trustIndicators = [
 export default function HomePage() {
   return (
     <article>
+      <Helmet>
+        <title>Clarivis Consulting Group | Health Education Accreditation by Eric A. Brichto</title>
+        <meta name="description" content="Clarivis Consulting Group, led by Eric A. Brichto, Esq., delivers expert accreditation readiness, compliance consulting, and site visit preparation for health sector education programs." />
+        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="keywords" content="Clarivis Consulting Group, Eric Brichto, Eric A. Brichto, health education accreditation, accreditation consulting, compliance consulting, CAAHEP, CAHME, site visit preparation, healthcare education" />
+        <link rel="canonical" href="https://clarivisgroup.com/" />
+        <meta property="og:title" content="Clarivis Consulting Group | Eric A. Brichto" />
+        <meta property="og:description" content="Expert health education accreditation and compliance consulting led by Eric A. Brichto, licensed attorney and former Chief Accreditation Officer." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://clarivisgroup.com/" />
+        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta property="og:site_name" content="Clarivis Consulting Group" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Clarivis Consulting Group | Eric A. Brichto" />
+        <meta name="twitter:description" content="Health education accreditation consulting by Eric A. Brichto, Esq." />
+        <meta name="twitter:image" content="https://clarivisgroup.com/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify(homeJsonLd)}</script>
+      </Helmet>
+
       {/* Hero Section */}
       <section aria-labelledby="hero-heading" className="relative overflow-hidden bg-gradient-hero">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" aria-hidden="true" />
