@@ -4,6 +4,7 @@ import { ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
+import { SearchBar } from "./SearchBar";
 import {
   Sheet,
   SheetContent,
@@ -168,6 +169,11 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Desktop Search */}
+          <div className="hidden lg:block">
+            <SearchBar />
+          </div>
+
           {/* Desktop CTA */}
           <div className="hidden lg:block shrink-0">
             <Button variant="cta" size="sm" className="text-sm" asChild>
