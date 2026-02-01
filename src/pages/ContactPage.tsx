@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,11 +42,13 @@ export default function ContactPage() {
 
   return (
     <article>
+      <SEOWrapper path="/contact" />
+
       {/* Hero */}
       <section aria-labelledby="contact-heading" className="bg-gradient-hero py-16 md:py-24">
         <div className="container-narrow mx-auto px-6 text-center">
           <h1 id="contact-heading" className="font-display text-4xl font-bold text-primary-foreground md:text-5xl">
-            Contact Us
+            Schedule a Free Consultation
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
             Ready to discuss your accreditation, compliance, or consulting needs? We are here to help.
@@ -217,7 +220,7 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                       aria-busy={isSubmitting}
                     >
-                      {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                      {isSubmitting ? "Submitting..." : "Schedule Free Consultation"}
                     </Button>
 
                     <p className="text-center text-sm text-muted-foreground">

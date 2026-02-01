@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 // Service images
 import serviceAccreditation from "@/assets/service-accreditation.jpg";
@@ -50,6 +51,8 @@ const services = [
 export default function ServicesPage() {
   return (
     <article>
+      <SEOWrapper path="/services" />
+
       {/* Hero */}
       <section aria-labelledby="services-hero-heading" className="bg-gradient-hero py-16 md:py-24">
         <div className="container-narrow mx-auto px-6 text-center">
@@ -110,7 +113,7 @@ export default function ServicesPage() {
           <div className="mt-8">
             <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
-                Discuss Your Needs
+                Schedule Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
             </Button>
