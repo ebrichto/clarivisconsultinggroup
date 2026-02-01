@@ -3,6 +3,7 @@ import { GovernmentPageLayout } from "@/components/GovernmentPageLayout";
 export default function OpportunityPage() {
   return (
     <GovernmentPageLayout
+      seoPath="/government/opportunity"
       title="Opportunity Identification"
       description="We help you identify and evaluate federal and state contract opportunities that align with your organizational capabilities and strategic goals."
       capabilities={[

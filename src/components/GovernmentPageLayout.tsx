@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ArrowLeft } from "lucide-react";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 interface GovernmentPageLayoutProps {
   title: string;
@@ -8,6 +9,7 @@ interface GovernmentPageLayoutProps {
   capabilities: string[];
   approach: string[];
   relatedPages: { label: string; path: string }[];
+  seoPath: string;
 }
 
 export function GovernmentPageLayout({ 
@@ -15,10 +17,13 @@ export function GovernmentPageLayout({
   description, 
   capabilities, 
   approach,
-  relatedPages 
+  relatedPages,
+  seoPath
 }: GovernmentPageLayoutProps) {
   return (
     <div>
+      <SEOWrapper path={seoPath} />
+
       {/* Hero */}
       <section className="bg-gradient-hero py-16 md:py-20">
         <div className="container-narrow mx-auto px-6">
@@ -108,7 +113,7 @@ export function GovernmentPageLayout({
           <div className="mt-8">
             <Button variant="hero" size="lg" asChild>
               <Link to="/contact">
-                Discuss Your Goals
+                Schedule Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

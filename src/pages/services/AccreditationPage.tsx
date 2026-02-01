@@ -3,6 +3,7 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function AccreditationPage() {
   return (
     <ServicePageLayout
+      seoPath="/services/accreditation"
       title="Accreditation Readiness & Self-Study Support"
       description="Prepare your organization for successful accreditation with expert guidance through every phase of the process, from initial assessment to survey day."
       features={[

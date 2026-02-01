@@ -3,6 +3,7 @@ import { GovernmentPageLayout } from "@/components/GovernmentPageLayout";
 export default function PostAwardPage() {
   return (
     <GovernmentPageLayout
+      seoPath="/government/post-award"
       title="Post-Award Support"
       description="Implementation planning and compliance support to ensure successful contract execution from day one through contract closeout."
       capabilities={[

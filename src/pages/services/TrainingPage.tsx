@@ -3,6 +3,7 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function TrainingPage() {
   return (
     <ServicePageLayout
+      seoPath="/services/training"
       title="Education & Training"
       description="Build internal capacity with customized training programs designed to develop your team's compliance knowledge and operational capabilities."
       features={[

@@ -3,6 +3,7 @@ import { GovernmentPageLayout } from "@/components/GovernmentPageLayout";
 export default function ProposalPage() {
   return (
     <GovernmentPageLayout
+      seoPath="/government/proposal"
       title="Proposal Development"
       description="Expert support in developing compliant, competitive proposals that clearly articulate your value proposition and technical approach."
       capabilities={[

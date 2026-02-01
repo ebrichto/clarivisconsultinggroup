@@ -3,6 +3,7 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function SiteVisitPage() {
   return (
     <ServicePageLayout
+      seoPath="/services/site-visit"
       title="Site Visit Preparation"
       description="Ensure your team and facilities are ready for surveyor visits with comprehensive preparation strategies and hands-on coaching."
       features={[

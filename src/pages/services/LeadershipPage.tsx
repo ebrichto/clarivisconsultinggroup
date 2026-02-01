@@ -3,6 +3,7 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function LeadershipPage() {
   return (
     <ServicePageLayout
+      seoPath="/services/leadership"
       title="Interim & Advisory Program Leadership"
       description="Experienced healthcare executives providing strategic direction during transitions, vacancies, or periods of organizational change."
       features={[

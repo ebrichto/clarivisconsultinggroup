@@ -3,6 +3,7 @@ import { ServicePageLayout } from "@/components/ServicePageLayout";
 export default function CompliancePage() {
   return (
     <ServicePageLayout
+      seoPath="/services/compliance"
       title="Regulatory Compliance Consulting"
       description="Navigate complex regulatory requirements with clarity and confidence. Our consultants help you build robust compliance programs that protect your organization."
       features={[
