@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clarivis Consulting Group | Health Sector Education & Accreditation</title>
-    <meta name="description" content="Clarivis Consulting Group delivers clear guidance for health sector education programs — accreditation readiness, compliance consulting, and government contract support." />
+    <title>Clarivis Consulting Group | Health Education Accreditation by Eric A. Brichto</title>
+    <meta name="description" content="Clarivis Consulting Group, led by Eric A. Brichto, Esq., delivers expert accreditation readiness, compliance consulting, and site visit preparation for health sector education programs." />
     <meta name="author" content="Eric A. Brichto, Esq." />
-    <meta name="keywords" content="Clarivis, Clarivis Group, Clarivis Consulting, clarivisgroup, Eric Brichto, Eric A. Brichto, health education consulting, accreditation readiness, compliance consulting, education program advisory, regulatory compliance, government contracts" />
+    <meta name="keywords" content="Clarivis Consulting Group, Eric Brichto, Eric A. Brichto, health education accreditation, accreditation consulting, compliance consulting, CAAHEP, CAHME, site visit preparation, healthcare education" />
     <link rel="canonical" href="https://www.clarivisgroup.com/" />
     
     <!-- Favicon Package -->
@@ -26,8 +26,8 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Clarivis Consulting Group | Health Sector Education & Accreditation" />
-    <meta property="og:description" content="Clear guidance to help health sector education programs achieve compliance, operational readiness, and sustainable success." />
+    <meta property="og:title" content="Clarivis Consulting Group | Health Education Accreditation by Eric A. Brichto" />
+    <meta property="og:description" content="Clarivis Consulting Group, led by Eric A. Brichto, Esq., delivers expert accreditation readiness, compliance consulting, and site visit preparation for health sector education programs." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.clarivisgroup.com/" />
     <meta property="og:image" content="https://www.clarivisgroup.com/og-image.png" />
@@ -61,64 +61,6 @@
           "alternateName": ["Eric Brichto", "Eric A. Brichto"],
           "jobTitle": "Founder & Principal",
           "url": "https://www.clarivisgroup.com/about"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
-        },
-        "sameAs": [
-          "https://www.clarivisgroup.com/about",
-          "https://www.clarivisgroup.com/blog"
-        ]
-      }
-    </script>
-
-    <!-- Structured Data (JSON-LD) - Consulting Business -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "@id": "https://www.clarivisgroup.com/#service",
-        "name": "Clarivis Consulting Group",
-        "description": "Expert consulting for health sector education programs including accreditation readiness, compliance consulting, site visit preparation, and government contract support.",
-        "url": "https://www.clarivisgroup.com/",
-        "telephone": "+1-508-446-4592",
-        "email": "ebrichto@clarivisgroup.com",
-        "priceRange": "$$",
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "serviceType": [
-          "Accreditation Readiness",
-          "Self-Study Support",
-          "Site Visit Preparation",
-          "Progress Report Preparation",
-          "Compliance Consulting",
-          "Recruitment Support",
-          "Government Contract Support"
-        ]
-      }
-    </script>
-
-    <!-- Structured Data (JSON-LD) - WebSite with SearchAction -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Clarivis Consulting Group",
-        "alternateName": "ClarivIsGroup",
-        "url": "https://www.clarivisgroup.com/",
-        "publisher": {
-          "@id": "https://www.clarivisgroup.com/#organization"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://www.clarivisgroup.com/search?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
         }
       }
     </script>
@@ -132,38 +74,30 @@
       gtag('config', 'G-FZP6SPKMK5');
     </script>
 
-    <!-- GitHub Pages SPA Redirect Script -->
+    <!-- GitHub Pages SPA redirect script -->
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License - https://github.com/rafgraph/spa-github-pages
-      // This script redirects all paths to index.html with the path encoded in the query string
       (function(l) {
-        // Redirect non-www to www (primary domain)
         if (l.hostname === 'clarivisgroup.com') {
           l.replace('https://www.clarivisgroup.com' + l.pathname + l.search + l.hash);
           return;
         }
-        
-        // Encode the current path into query string and redirect to root
-        // index.html will decode this and restore the proper route
-        if (l.pathname && l.pathname !== '/') {
-          var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            '/?/' + l.pathname.slice(1).replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash;
-          
-          l.replace(redirectUrl);
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
         }
-      }(window.location));
+      }(window.location))
     </script>
   </head>
 
   <body>
     <noscript>
       <div style="padding: 2rem; text-align: center;">
-        <h1>Clarivis Consulting Group</h1>
-        <p>Health sector education accreditation, compliance, and advisory services.</p>
-        <p>Please enable JavaScript to use this website, or visit <a href="https://www.clarivisgroup.com/">our homepage</a>.</p>
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to use Clarivis Consulting Group website.</p>
       </div>
     </noscript>
     <div id="root"></div>
