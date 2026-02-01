@@ -3,6 +3,7 @@ import { GovernmentPageLayout } from "@/components/GovernmentPageLayout";
 export default function TeamingPage() {
   return (
     <GovernmentPageLayout
+      seoPath="/government/teaming"
       title="Teaming & Partnerships"
       description="Guidance on building effective prime-subcontractor relationships and joint venture arrangements that strengthen your competitive position."
       capabilities={[
