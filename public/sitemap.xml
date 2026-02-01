@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://www.clarivisgroup.com/</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- Services -->
   <url>
     <loc>https://www.clarivisgroup.com/services</loc>
     <lastmod>2026-02-01</lastmod>
@@ -16,44 +19,50 @@
     <loc>https://www.clarivisgroup.com/services/accreditation</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/services/site-visit</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/services/compliance</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/services/leadership</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/services/training</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
+  
+  <!-- Pricing -->
   <url>
     <loc>https://www.clarivisgroup.com/pricing</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Who We Serve -->
   <url>
     <loc>https://www.clarivisgroup.com/who-we-serve</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
+  
+  <!-- Government -->
   <url>
     <loc>https://www.clarivisgroup.com/government</loc>
     <lastmod>2026-02-01</lastmod>
@@ -64,43 +73,48 @@
     <loc>https://www.clarivisgroup.com/government/opportunity</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/government/proposal</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/government/teaming</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.clarivisgroup.com/government/post-award</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-  <!-- Eric A. Brichto Primary Pages - Highest SEO Priority -->
+  
+  <!-- About - High Priority for Eric Brichto SEO -->
   <url>
     <loc>https://www.clarivisgroup.com/about</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
+  
+  <!-- Contact -->
   <url>
     <loc>https://www.clarivisgroup.com/contact</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Blog - High Priority for SEO -->
   <url>
     <loc>https://www.clarivisgroup.com/blog</loc>
     <lastmod>2026-02-01</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
@@ -193,25 +207,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Featured Article - Eric Brichto SEO Boost -->
   <url>
     <loc>https://www.clarivisgroup.com/blog/16</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Careers -->
   <url>
     <loc>https://www.clarivisgroup.com/careers</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- Search -->
   <url>
     <loc>https://www.clarivisgroup.com/search</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  
+  <!-- Legal -->
   <url>
     <loc>https://www.clarivisgroup.com/privacy</loc>
     <lastmod>2026-02-01</lastmod>
