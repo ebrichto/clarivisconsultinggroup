@@ -1,9 +1,9 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Heart, TrendingUp, Mail } from "lucide-react";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 const benefits = [
   {
@@ -26,22 +26,7 @@ const benefits = [
 export default function CareersPage() {
   return (
     <>
-      <Helmet>
-        <title>Join Our Team | Clarivis Consulting Group</title>
-        <meta
-          name="description"
-          content="Join Clarivis Consulting Group. Explore career opportunities in healthcare accreditation consulting and help shape the future of health education."
-        />
-        <link rel="canonical" href="https://clarivisgroup.com/careers" />
-        <meta property="og:title" content="Join Our Team | Clarivis Consulting Group" />
-        <meta property="og:description" content="Explore career opportunities in healthcare accreditation consulting." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://clarivisgroup.com/careers" />
-        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Join Our Team | Clarivis Consulting Group" />
-        <meta name="twitter:description" content="Explore career opportunities in healthcare accreditation consulting." />
-      </Helmet>
+      <SEOWrapper path="/careers" />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero section-padding">

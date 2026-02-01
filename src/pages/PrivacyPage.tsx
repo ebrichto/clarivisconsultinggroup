@@ -1,12 +1,9 @@
-import { Helmet } from "react-helmet-async";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 const PrivacyPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy | Clarivis Consulting Group</title>
-        <meta name="description" content="Privacy policy for Clarivis Consulting Group. Learn how we collect, use, and protect your personal information." />
-      </Helmet>
+      <SEOWrapper path="/privacy" />
 
       <main className="py-16 lg:py-24">
         <div className="container-narrow mx-auto px-6">
@@ -15,7 +12,7 @@ const PrivacyPage = () => {
               Privacy Policy
             </h1>
             <p className="text-muted-foreground mb-8">
-              Last updated: January 2025
+              Last updated: February 2026
             </p>
 
             <div className="prose prose-slate max-w-none space-y-8">

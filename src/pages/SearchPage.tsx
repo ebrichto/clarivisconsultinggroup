@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { Search, ArrowRight, FileText, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
+import { SEOWrapper } from "@/components/SEOWrapper";
+import { SITE_CONFIG } from "@/utils/seoConfig";
 import { cn } from "@/lib/utils";
 
 // Define searchable pages with enhanced keywords for SEO
@@ -197,12 +198,10 @@ export default function SearchPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{query ? `Search: ${query}` : "Search"} | Clarivis Consulting Group</title>
-        <meta name="description" content="Search for articles, services, and resources on health education accreditation from Eric A. Brichto and Clarivis Consulting Group." />
-        <meta name="robots" content="noindex" />
-        <link rel="canonical" href="https://clarivisgroup.com/search" />
-      </Helmet>
+      <SEOWrapper 
+        path="/search" 
+        title={query ? `Search: ${query} | Clarivis Consulting Group` : "Search | Clarivis Consulting Group"}
+      />
 
       {/* Hero */}
       <section className="bg-gradient-hero py-16 md:py-20">
@@ -283,7 +282,7 @@ export default function SearchPage() {
                           </p>
                         )}
                         <p className="mt-2 text-xs text-primary">
-                          clarivisgroup.com{result.path}
+                          www.clarivisgroup.com{result.path}
                         </p>
                       </div>
                       <ArrowRight className="h-5 w-5 text-muted-foreground shrink-0" />

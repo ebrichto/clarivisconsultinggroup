@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 import govPostAward from "@/assets/gov-post-award.jpg";
 import govProposal from "@/assets/gov-proposal.jpg";
@@ -37,6 +38,8 @@ const capabilities = [
 export default function GovernmentPage() {
   return (
     <div>
+      <SEOWrapper path="/government" />
+
       {/* Hero */}
       <section className="bg-gradient-hero py-16 md:py-24">
         <div className="container-narrow mx-auto px-6 text-center">
@@ -104,7 +107,7 @@ export default function GovernmentPage() {
           <div className="mt-8">
             <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
-                Discuss Your Goals
+                Schedule Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

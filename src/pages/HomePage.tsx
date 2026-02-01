@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { SITE_CONFIG } from "@/utils/seoConfig";
 
 // Service images
 import serviceAccreditation from "@/assets/service-accreditation.jpg";
@@ -16,57 +17,57 @@ const homeJsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://clarivisgroup.com/#organization",
-      "name": "Clarivis Consulting Group, LLC",
+      "@id": `${SITE_CONFIG.domain}/#organization`,
+      "name": SITE_CONFIG.legalName,
       "alternateName": ["Clarivis Group", "Clarivis", "ClarivIsGroup"],
-      "url": "https://clarivisgroup.com/",
-      "logo": "https://clarivisgroup.com/logo.png",
+      "url": `${SITE_CONFIG.domain}/`,
+      "logo": SITE_CONFIG.logo,
       "description": "Health sector education accreditation, compliance, and program advisory services led by Eric A. Brichto, Esq.",
       "founder": {
         "@type": "Person",
-        "name": "Eric A. Brichto, Esq.",
+        "name": SITE_CONFIG.founder,
         "alternateName": ["Eric Brichto", "Eric A. Brichto"],
         "jobTitle": "Founder & Principal",
-        "url": "https://clarivisgroup.com/about"
+        "url": `${SITE_CONFIG.domain}/about`
       },
       "sameAs": [
-        "https://clarivisgroup.com/about",
-        "https://clarivisgroup.com/blog"
+        `${SITE_CONFIG.domain}/about`,
+        `${SITE_CONFIG.domain}/blog`
       ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://clarivisgroup.com/#website",
-      "url": "https://clarivisgroup.com/",
-      "name": "Clarivis Consulting Group",
+      "@id": `${SITE_CONFIG.domain}/#website`,
+      "url": `${SITE_CONFIG.domain}/`,
+      "name": SITE_CONFIG.name,
       "description": "Expert health education accreditation consulting by Eric A. Brichto, Esq.",
-      "publisher": { "@id": "https://clarivisgroup.com/#organization" },
+      "publisher": { "@id": `${SITE_CONFIG.domain}/#organization` },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://clarivisgroup.com/search?q={search_term_string}"
+          "urlTemplate": `${SITE_CONFIG.domain}/search?q={search_term_string}`
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://clarivisgroup.com/#service",
-      "name": "Clarivis Consulting Group",
+      "@id": `${SITE_CONFIG.domain}/#service`,
+      "name": SITE_CONFIG.name,
       "description": "Expert consulting for health sector education programs including accreditation readiness, compliance consulting, site visit preparation, and government contract support. Led by Eric A. Brichto, licensed attorney and former Chief Accreditation Officer.",
-      "url": "https://clarivisgroup.com/",
-      "telephone": "+1-508-446-4592",
-      "email": "ebrichto@clarivisgroup.com",
+      "url": `${SITE_CONFIG.domain}/`,
+      "telephone": SITE_CONFIG.phone,
+      "email": SITE_CONFIG.email,
       "priceRange": "$$",
       "areaServed": { "@type": "Country", "name": "United States" },
       "founder": {
         "@type": "Person",
-        "name": "Eric A. Brichto, Esq.",
+        "name": SITE_CONFIG.founder,
         "alternateName": ["Eric Brichto", "Eric A. Brichto"],
         "jobTitle": "Founder & Principal",
         "description": "Licensed attorney and experienced accreditation professional with decades of leadership in health sector education.",
-        "url": "https://clarivisgroup.com/about"
+        "url": `${SITE_CONFIG.domain}/about`
       },
       "serviceType": [
         "Accreditation Readiness",
@@ -125,19 +126,19 @@ export default function HomePage() {
       <Helmet>
         <title>Clarivis Consulting Group | Health Education Accreditation by Eric A. Brichto</title>
         <meta name="description" content="Clarivis Consulting Group, led by Eric A. Brichto, Esq., delivers expert accreditation readiness, compliance consulting, and site visit preparation for health sector education programs." />
-        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="author" content={SITE_CONFIG.founder} />
         <meta name="keywords" content="Clarivis Consulting Group, Eric Brichto, Eric A. Brichto, health education accreditation, accreditation consulting, compliance consulting, CAAHEP, CAHME, site visit preparation, healthcare education" />
-        <link rel="canonical" href="https://clarivisgroup.com/" />
+        <link rel="canonical" href={`${SITE_CONFIG.domain}/`} />
         <meta property="og:title" content="Clarivis Consulting Group | Eric A. Brichto" />
         <meta property="og:description" content="Expert health education accreditation and compliance consulting led by Eric A. Brichto, licensed attorney and former Chief Accreditation Officer." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://clarivisgroup.com/" />
-        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
-        <meta property="og:site_name" content="Clarivis Consulting Group" />
+        <meta property="og:url" content={`${SITE_CONFIG.domain}/`} />
+        <meta property="og:image" content={SITE_CONFIG.ogImage} />
+        <meta property="og:site_name" content={SITE_CONFIG.name} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Clarivis Consulting Group | Eric A. Brichto" />
         <meta name="twitter:description" content="Health education accreditation consulting by Eric A. Brichto, Esq." />
-        <meta name="twitter:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta name="twitter:image" content={SITE_CONFIG.ogImage} />
         <script type="application/ld+json">{JSON.stringify(homeJsonLd)}</script>
       </Helmet>
 
@@ -162,7 +163,7 @@ export default function HomePage() {
             <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row animate-fade-up px-4 sm:px-0" style={{ animationDelay: "0.3s" }}>
               <Button variant="hero" size="xl" className="w-full sm:w-auto touch-manipulation" asChild>
                 <Link to="/contact">
-                  Schedule Consultation
+                  Schedule Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Link>
               </Button>
@@ -299,12 +300,12 @@ export default function HomePage() {
             Ready to Achieve Compliance Excellence?
           </h2>
           <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-primary-foreground/80 px-2 sm:px-0">
-            Schedule a consultation to discuss how Clarivis can support your accreditation, compliance, and operational goals.
+            Schedule a free consultation to discuss how Clarivis can support your accreditation, compliance, and operational goals.
           </p>
           <div className="mt-6 sm:mt-8 px-4 sm:px-0">
             <Button variant="hero" size="xl" className="w-full sm:w-auto touch-manipulation" asChild>
               <Link to="/contact">
-                Get Started Today
+                Schedule Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
             </Button>

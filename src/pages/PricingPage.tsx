@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Check, ArrowRight } from "lucide-react";
 import PricingInquiryForm from "@/components/PricingInquiryForm";
+import { SITE_CONFIG } from "@/utils/seoConfig";
 
 import programOriginationImg from "@/assets/pricing-program-origination.png";
 import postReviewImg from "@/assets/pricing-post-review.png";
@@ -128,19 +129,20 @@ export default function PricingPage() {
   return (
     <>
       <Helmet>
-        <title>Pricing | Clarivis Consulting Group</title>
+        <title>Pricing & Service Packages | Clarivis Consulting Group</title>
         <meta
           name="description"
-          content="Transparent pricing for accreditation consulting services. From self-study support to full-cycle accreditation guidance."
+          content="Transparent pricing for accreditation consulting services. Self-study support, full-cycle accreditation, mock site visits, and post-decision support packages."
         />
-        <link rel="canonical" href="https://clarivisgroup.com/pricing" />
-        <meta property="og:title" content="Pricing | Clarivis Consulting Group" />
+        <meta name="keywords" content="accreditation consulting pricing, consulting fees, accreditation packages, self-study pricing, mock site visit cost, Clarivis pricing" />
+        <link rel="canonical" href={`${SITE_CONFIG.domain}/pricing`} />
+        <meta property="og:title" content="Pricing & Service Packages | Clarivis Consulting Group" />
         <meta property="og:description" content="Transparent pricing for accreditation consulting services." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://clarivisgroup.com/pricing" />
-        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta property="og:url" content={`${SITE_CONFIG.domain}/pricing`} />
+        <meta property="og:image" content={SITE_CONFIG.ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pricing | Clarivis Consulting Group" />
+        <meta name="twitter:title" content="Pricing & Service Packages | Clarivis Consulting Group" />
         <meta name="twitter:description" content="Transparent pricing for accreditation consulting services." />
       </Helmet>
 
@@ -250,7 +252,7 @@ export default function PricingPage() {
                   <div className="pt-4 mt-auto">
                     <Button asChild className="w-full" variant={bundle.popular ? "default" : "outline"}>
                       <Link to="/contact">
-                        Get Started
+                        Schedule Free Consultation
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
@@ -322,12 +324,12 @@ export default function PricingPage() {
                 Ready to Discuss Your Needs?
               </h2>
               <p className="mt-4 text-white/80 max-w-2xl mx-auto">
-                Every program is unique. Schedule a consultation to discuss your specific accreditation challenges and receive a customized proposal.
+                Every program is unique. Schedule a free consultation to discuss your specific accreditation challenges and receive a customized proposal.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
                   <Link to="/contact">
-                    Schedule Consultation
+                    Schedule Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
