@@ -1,12 +1,9 @@
-import { Helmet } from "react-helmet-async";
+import { SEOWrapper } from "@/components/SEOWrapper";
 
 const TermsPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Terms of Service | Clarivis Consulting Group</title>
-        <meta name="description" content="Terms of service for Clarivis Consulting Group. Read our terms and conditions for using our website and services." />
-      </Helmet>
+      <SEOWrapper path="/terms" />
 
       <main className="py-16 lg:py-24">
         <div className="container-narrow mx-auto px-6">
@@ -15,7 +12,7 @@ const TermsPage = () => {
               Terms of Service
             </h1>
             <p className="text-muted-foreground mb-8">
-              Last updated: January 2025
+              Last updated: February 2026
             </p>
 
             <div className="prose prose-slate max-w-none space-y-8">
