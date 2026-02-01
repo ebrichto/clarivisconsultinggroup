@@ -1,5 +1,5 @@
 # Clarivis Consulting Group - robots.txt
-# https://clarivisgroup.com
+# https://www.clarivisgroup.com
 
 User-agent: Googlebot
 Allow: /
@@ -20,7 +20,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://clarivisgroup.com/sitemap.xml
+Sitemap: https://www.clarivisgroup.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
