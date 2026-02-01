@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
+import { SITE_CONFIG } from "@/utils/seoConfig";
 import ownerProfile from "@/assets/owner-profile.jpg";
 import { SocialShareButtons } from "@/components/SocialShareButtons";
 
@@ -19,32 +20,32 @@ export default function BlogPostPage() {
     "@type": "Article",
     "headline": post.title,
     "description": post.excerpt,
-    "image": "https://clarivisgroup.com/og-image.png",
+    "image": SITE_CONFIG.ogImage,
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
       "@type": "Person",
-      "name": "Eric A. Brichto, Esq.",
+      "name": SITE_CONFIG.founder,
       "jobTitle": "Licensed Attorney & Accreditation Consultant",
       "description": "Eric Brichto is a licensed attorney and experienced accreditation professional with decades of leadership experience in health sector education accreditation and policy development.",
-      "url": "https://clarivisgroup.com/about",
+      "url": `${SITE_CONFIG.domain}/about`,
       "sameAs": [
-        "https://clarivisgroup.com/blog",
-        "https://clarivisgroup.com/about"
+        `${SITE_CONFIG.domain}/blog`,
+        `${SITE_CONFIG.domain}/about`
       ]
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Clarivis Consulting Group",
-      "url": "https://clarivisgroup.com",
+      "name": SITE_CONFIG.name,
+      "url": SITE_CONFIG.domain,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://clarivisgroup.com/logo.png"
+        "url": SITE_CONFIG.logo
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://clarivisgroup.com/blog/${post.id}`
+      "@id": `${SITE_CONFIG.domain}/blog/${post.id}`
     },
     "keywords": ["Eric Brichto", "Eric A. Brichto", "accreditation", "healthcare education", "compliance", post.category]
   };
@@ -54,21 +55,21 @@ export default function BlogPostPage() {
       <Helmet>
         <title>{post.title} | Eric A. Brichto, Esq. | Clarivis Consulting Group</title>
         <meta name="description" content={`${post.excerpt} Written by Eric Brichto, licensed attorney and accreditation expert.`} />
-        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="author" content={SITE_CONFIG.founder} />
         <meta name="keywords" content={`Eric Brichto, Eric A. Brichto, ${post.category}, accreditation, healthcare education, compliance, health sector`} />
-        <link rel="canonical" href={`https://clarivisgroup.com/blog/${post.id}`} />
+        <link rel="canonical" href={`${SITE_CONFIG.domain}/blog/${post.id}`} />
         <meta property="og:title" content={`${post.title} | Eric A. Brichto`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://clarivisgroup.com/blog/${post.id}`} />
-        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
-        <meta property="og:site_name" content="Clarivis Consulting Group" />
+        <meta property="og:url" content={`${SITE_CONFIG.domain}/blog/${post.id}`} />
+        <meta property="og:image" content={SITE_CONFIG.ogImage} />
+        <meta property="og:site_name" content={SITE_CONFIG.name} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Eric Brichto`} />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content="https://clarivisgroup.com/og-image.png" />
+        <meta name="twitter:image" content={SITE_CONFIG.ogImage} />
         <meta property="article:published_time" content={post.date} />
-        <meta property="article:author" content="Eric A. Brichto, Esq." />
+        <meta property="article:author" content={SITE_CONFIG.founder} />
         <meta property="article:section" content={post.category} />
         <meta property="article:tag" content="Eric Brichto" />
         <meta property="article:tag" content="accreditation" />
@@ -129,7 +130,7 @@ export default function BlogPostPage() {
                 </div>
               </div>
               <SocialShareButtons 
-                url={`https://clarivisgroup.com/blog/${post.id}`}
+                url={`${SITE_CONFIG.domain}/blog/${post.id}`}
                 title={post.title}
                 description={post.excerpt}
               />
@@ -196,7 +197,7 @@ export default function BlogPostPage() {
                 to="/contact"
                 className="mt-6 inline-block rounded-md bg-white px-6 py-3 font-medium text-primary hover:bg-white/90 transition-colors"
               >
-                Schedule a Consultation
+                Schedule Free Consultation
               </Link>
             </div>
           </div>

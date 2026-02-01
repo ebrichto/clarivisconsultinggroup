@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Building2, Hospital, Stethoscope, Shield, ArrowRight } from "lucide-react";
+import { SEOWrapper } from "@/components/SEOWrapper";
 import seeYourselfBg from "@/assets/see-yourself-bg.png";
 import audienceCompliance from "@/assets/audience-compliance.png";
 import audienceHealthcare from "@/assets/audience-healthcare.png";
@@ -65,6 +66,8 @@ const audiences = [
 export default function WhoWeServePage() {
   return (
     <div>
+      <SEOWrapper path="/who-we-serve" />
+
       {/* Hero */}
       <section className="bg-gradient-hero py-16 md:py-24">
         <div className="container-narrow mx-auto px-6 text-center">
@@ -190,7 +193,7 @@ export default function WhoWeServePage() {
           <div className="mt-8">
             <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
-                Start the Conversation
+                Schedule Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

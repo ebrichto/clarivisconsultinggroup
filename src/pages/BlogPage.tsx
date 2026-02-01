@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
+import { SITE_CONFIG } from "@/utils/seoConfig";
 import ownerProfile from "@/assets/owner-profile.jpg";
 
 // JSON-LD structured data for blog listing page
@@ -10,30 +11,30 @@ const jsonLd = {
   "@type": "Blog",
   "name": "Eric A. Brichto's Insights on Health Education Accreditation",
   "description": "Expert insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., licensed attorney and accreditation professional.",
-  "url": "https://clarivisgroup.com/blog",
+  "url": `${SITE_CONFIG.domain}/blog`,
   "author": {
     "@type": "Person",
-    "name": "Eric A. Brichto, Esq.",
+    "name": SITE_CONFIG.founder,
     "jobTitle": "Licensed Attorney & Accreditation Consultant",
     "description": "Eric Brichto is a licensed attorney and experienced accreditation professional with decades of leadership experience in health sector education accreditation and policy development. Eric A. Brichto provides expert consulting services through Clarivis Consulting Group.",
-    "url": "https://clarivisgroup.com/about",
+    "url": `${SITE_CONFIG.domain}/about`,
     "sameAs": [
-      "https://clarivisgroup.com/blog",
-      "https://clarivisgroup.com/about"
+      `${SITE_CONFIG.domain}/blog`,
+      `${SITE_CONFIG.domain}/about`
     ],
     "worksFor": {
       "@type": "Organization",
-      "name": "Clarivis Consulting Group",
-      "url": "https://clarivisgroup.com"
+      "name": SITE_CONFIG.name,
+      "url": SITE_CONFIG.domain
     }
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Clarivis Consulting Group",
-    "url": "https://clarivisgroup.com",
+    "name": SITE_CONFIG.name,
+    "url": SITE_CONFIG.domain,
     "logo": {
       "@type": "ImageObject",
-      "url": "https://clarivisgroup.com/logo.png"
+      "url": SITE_CONFIG.logo
     }
   },
   "blogPost": blogPosts.map(post => ({
@@ -42,10 +43,10 @@ const jsonLd = {
     "description": post.excerpt,
     "author": {
       "@type": "Person",
-      "name": "Eric A. Brichto, Esq."
+      "name": SITE_CONFIG.founder
     },
     "datePublished": post.date,
-    "url": `https://clarivisgroup.com/blog/${post.id}`
+    "url": `${SITE_CONFIG.domain}/blog/${post.id}`
   }))
 };
 
@@ -63,20 +64,20 @@ const BlogPage = () => {
   return (
     <>
       <Helmet>
-        <title>Eric A. Brichto Blog | Health Education Accreditation Insights | Clarivis Consulting</title>
+        <title>Eric A. Brichto Blog | Health Education Accreditation Insights</title>
         <meta
           name="description"
-          content="Read expert insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., licensed attorney and former Chief Accreditation Officer. Eric Brichto shares decades of accreditation expertise."
+          content="Expert insights on health education accreditation, compliance, and regulatory affairs from Eric A. Brichto, Esq., licensed attorney and former Chief Accreditation Officer."
         />
-        <meta name="author" content="Eric A. Brichto, Esq." />
+        <meta name="author" content={SITE_CONFIG.founder} />
         <meta name="keywords" content="Eric Brichto, Eric A. Brichto, accreditation blog, healthcare education, compliance, health sector education, accreditation consultant, licensed attorney" />
-        <link rel="canonical" href="https://clarivisgroup.com/blog" />
+        <link rel="canonical" href={`${SITE_CONFIG.domain}/blog`} />
         <meta property="og:title" content="Eric A. Brichto Blog | Accreditation Insights" />
         <meta property="og:description" content="Expert insights on health education accreditation from Eric A. Brichto, Esq., licensed attorney and accreditation professional." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://clarivisgroup.com/blog" />
-        <meta property="og:image" content="https://clarivisgroup.com/og-image.png" />
-        <meta property="og:site_name" content="Clarivis Consulting Group" />
+        <meta property="og:url" content={`${SITE_CONFIG.domain}/blog`} />
+        <meta property="og:image" content={SITE_CONFIG.ogImage} />
+        <meta property="og:site_name" content={SITE_CONFIG.name} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Eric Brichto Blog | Accreditation Insights" />
         <meta name="twitter:description" content="Expert insights on health education accreditation from Eric A. Brichto, Esq." />
@@ -227,7 +228,7 @@ const BlogPage = () => {
             to="/contact"
             className="mt-8 inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-base font-medium text-primary hover:bg-white/90 transition-colors"
           >
-            Schedule a Consultation
+            Schedule Free Consultation
           </Link>
         </div>
       </section>
