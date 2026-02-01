@@ -46,6 +46,8 @@ const routesToPrerender = [
   "/blog/16",
 ];
 
+const Renderer = vitePrerender.PuppeteerRenderer;
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // Use root path - custom domain (clarivisgroup.com) doesn't need subdirectory
@@ -59,20 +61,28 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     mode === "production" &&
       vitePrerender({
+        staticDir: path.join(__dirname, "dist"),
         routes: routesToPrerender,
-        renderer: "@prerenderer/renderer-puppeteer",
-        rendererOptions: {
+        renderer: new Renderer({
           maxConcurrentRoutes: 4,
           renderAfterDocumentEvent: "render-event",
           headless: true,
-        },
+        }),
         postProcess(renderedRoute) {
-          // Minify and clean up the HTML
+          // Keep original route (ignore any redirects)
+          renderedRoute.route = renderedRoute.originalRoute;
+          // Clean up the HTML
           renderedRoute.html = renderedRoute.html
             .replace(/data-lovable-[^=]*="[^"]*"/g, "")
-            .replace(/\s{2,}/g, " ")
             .trim();
           return renderedRoute;
+        },
+        minify: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          decodeEntities: true,
+          keepClosingSlash: true,
+          sortAttributes: true,
         },
       }),
   ].filter(Boolean),
