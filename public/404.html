@@ -2,11 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Clarivis Consulting Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | Clarivis Consulting Group</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Clarivis Consulting Group homepage." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://www.clarivisgroup.com/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#1a3a4a" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Page Not Found | Clarivis Consulting Group" />
+    <meta property="og:description" content="The page you're looking for doesn't exist." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.clarivisgroup.com/" />
+    <meta property="og:image" content="https://www.clarivisgroup.com/og-image.png" />
+    <meta property="og:site_name" content="Clarivis Consulting Group" />
+    
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License - https://github.com/rafgraph/spa-github-pages
-      // Redirects 404s to index.html with path encoded in query string
       // Primary domain: www.clarivisgroup.com
       
       (function(l) {
@@ -16,23 +30,73 @@
           return;
         }
         
-        // Encode path into query string for SPA routing
-        var path = l.pathname.slice(1); // Remove leading slash
-        if (!path) return; // Don't redirect root
+        // For prerendered pages, just redirect to the same path on the root
+        // The prerendered HTML files should exist at these paths
+        var path = l.pathname;
         
-        var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          '/?/' + path.replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash;
-        
-        l.replace(redirectUrl);
+        // If this is a direct request (not from a link), check if we have a prerendered version
+        // Otherwise, encode path into query string for SPA routing fallback
+        if (path && path !== '/') {
+          var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            '/?/' + path.slice(1).replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash;
+          
+          l.replace(redirectUrl);
+        }
       }(window.location));
     </script>
+    
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #f8fafc;
+        color: #1a3a4a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 1rem;
+      }
+      .container {
+        text-align: center;
+        max-width: 400px;
+      }
+      h1 {
+        font-size: 4rem;
+        margin: 0;
+        color: #1a3a4a;
+        opacity: 0.2;
+      }
+      h2 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+      }
+      p {
+        color: #64748b;
+        margin: 0.5rem 0 1.5rem;
+      }
+      a {
+        display: inline-block;
+        background: #1a3a4a;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      a:hover {
+        background: #2a4a5a;
+      }
+    </style>
   </head>
   <body>
-    <noscript>
-      <h1>Page Not Found</h1>
-      <p>The page you're looking for doesn't exist. <a href="https://www.clarivisgroup.com/">Return to homepage</a>.</p>
-    </noscript>
+    <div class="container">
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <a href="https://www.clarivisgroup.com/">Return to Homepage</a>
+    </div>
   </body>
 </html>
