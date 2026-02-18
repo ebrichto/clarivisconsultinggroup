@@ -26,6 +26,7 @@ const ProposalPage = lazy(() => import("./pages/government/ProposalPage"));
 const TeamingPage = lazy(() => import("./pages/government/TeamingPage"));
 const PostAwardPage = lazy(() => import("./pages/government/PostAwardPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const LeadershipProfilePage = lazy(() => import("./pages/LeadershipPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const PricingPage = lazy(() => import("./pages/PricingPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
@@ -69,6 +70,7 @@ const App = () => (
                 <Route path="/government/teaming" element={<TeamingPage />} />
                 <Route path="/government/post-award" element={<PostAwardPage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/leadership" element={<LeadershipProfilePage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/blog" element={<BlogPage />} />
