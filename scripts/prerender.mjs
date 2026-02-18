@@ -156,6 +156,12 @@ const routes = {
     keywords: ["search Clarivis", "accreditation search", "find services"],
     ogType: "website",
   },
+  "/leadership": {
+    title: "Our Leadership — Eric A. Brichto, Esq. | Clarivis Consulting Group",
+    description: "Meet Eric A. Brichto, Esq., Founder & Principal of Clarivis Consulting Group. Licensed attorney and accreditation expert with decades of healthcare education leadership.",
+    keywords: ["Eric Brichto", "Eric A. Brichto", "Clarivis leadership", "accreditation consultant", "healthcare education", "licensed attorney"],
+    ogType: "profile",
+  },
 };
 
 // Blog posts (IDs 1-12 based on the data file)

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Target, Eye, Heart, ArrowRight, Sparkles } from "lucide-react";
 import { SITE_CONFIG } from "@/utils/seoConfig";
 import partnershipBg from "@/assets/partnership-bg.png";
-import ownerProfile from "@/assets/owner-profile.jpg";
 
 const values = [
   {
@@ -135,41 +134,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* Leadership Link */}
       <section className="section-padding bg-background">
-        <div className="container-narrow mx-auto">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Our Leadership
-            </h2>
-          </div>
-
-          <div className="mt-12">
-            <div className="float-left mr-6 mb-4">
-              <div className="h-40 w-40 overflow-hidden rounded-xl shadow-elevated md:h-56 md:w-56">
-                <img
-                  src={ownerProfile}
-                  alt="Eric A. Brichto, Esq."
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-display text-2xl font-bold text-foreground">
-                Eric A. Brichto, Esq.
-              </h3>
-              <p className="mt-1 text-lg font-medium text-primary">Founder & Principal</p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Eric A. Brichto, Esq. is an experienced accreditation and regulatory professional with more than a decade of leadership in higher education and healthcare accreditation. He previously served as Chief Accreditation Officer for the Commission on Accreditation of Healthcare Management Education (CAHME), where he oversaw accreditation operations, standards development, international program reviews, and governance initiatives.
-              </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Eric has advised hundreds of academic programs on accreditation strategy, compliance, and continuous improvement, and played a key role in designing new accreditation models, mentorship programs, and professional training initiatives. A licensed attorney, he brings a practical, risk-aware approach to accreditation grounded in regulatory compliance, policy development, and organizational strategy.
-              </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Eric is a frequent author and presenter on accreditation and quality assurance and is committed to helping institutions navigate accreditation with clarity, efficiency, and confidence.
-              </p>
-            </div>
-            <div className="clear-both"></div>
+        <div className="container-narrow mx-auto text-center">
+          <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+            Our Leadership
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            Led by Eric A. Brichto, Esq., a licensed attorney and experienced accreditation professional with decades of healthcare education leadership.
+          </p>
+          <div className="mt-6">
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/leadership">
+                Meet Our Team
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
