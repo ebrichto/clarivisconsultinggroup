@@ -78,29 +78,34 @@ export default function PricingInquiryForm() {
     setIsSubmitting(true);
     
     try {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(`Pricing Inquiry from ${data.organizationName}`);
       const servicesText = data.services
         .map(id => serviceOptions.find(s => s.id === id)?.label)
         .filter(Boolean)
         .join(", ");
-      
-      const body = encodeURIComponent(
-        `Organization: ${data.organizationName}\n` +
-        `Contact: ${data.contactName}\n` +
-        `Email: ${data.email}\n` +
-        `Phone: ${data.phone || "Not provided"}\n` +
-        `Program Type: ${data.programType}\n` +
-        `Services of Interest: ${servicesText}\n` +
-        `Timeline: ${data.timeline || "Not specified"}\n` +
-        `\nAdditional Information:\n${data.additionalInfo || "None"}`
-      );
-      
-      // Open mailto link
-      window.location.href = `mailto:ebrichto@clarivisgroup.com?subject=${subject}&body=${body}`;
-      
-      toast.success("Opening your email client. Please send the email to complete your inquiry.");
-      form.reset();
+
+      const formData = new FormData();
+      formData.append("organizationName", data.organizationName);
+      formData.append("contactName", data.contactName);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone || "Not provided");
+      formData.append("programType", data.programType);
+      formData.append("services", servicesText);
+      formData.append("timeline", data.timeline || "Not specified");
+      formData.append("additionalInfo", data.additionalInfo || "None");
+      formData.append("_subject", `Pricing Inquiry from ${data.organizationName}`);
+
+      const response = await fetch("https://formspree.io/f/xnjjajdj", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        toast.success("Thank you! Your inquiry has been submitted. We'll be in touch shortly.");
+        form.reset();
+      } else {
+        throw new Error("Submission failed");
+      }
     } catch (error) {
       toast.error("Something went wrong. Please email us directly at ebrichto@clarivisgroup.com");
     } finally {
