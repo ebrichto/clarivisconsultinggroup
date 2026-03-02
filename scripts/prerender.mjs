@@ -164,7 +164,7 @@ const routes = {
   },
 };
 
-// Blog posts (IDs 1-12 based on the data file)
+// Blog posts (IDs 1-16 based on the data file)
 const blogPosts = [
   { id: 1, title: "Navigating the Evolving Landscape of Health Education Accreditation", excerpt: "As accreditation standards continue to evolve, health education programs must stay ahead of regulatory changes." },
   { id: 2, title: "The Critical Role of Compliance in Healthcare Program Success", excerpt: "Drawing from decades of experience in health sector education, Eric Brichto examines proactive compliance strategies." },
@@ -178,6 +178,10 @@ const blogPosts = [
   { id: 10, title: "The Role of Data in Accreditation Excellence", excerpt: "Discover how data-driven approaches improve accreditation outcomes." },
   { id: 11, title: "Faculty Engagement in the Accreditation Process", excerpt: "Strategies for engaging faculty in accreditation success." },
   { id: 12, title: "The Ten Commandments of Site Visits", excerpt: "Essential principles for site visit success." },
+  { id: 13, title: "Building a Culture of Continuous Improvement", excerpt: "Seasoned accreditation expert Eric A. Brichto shares strategies for embedding continuous improvement into organizational culture to support ongoing accreditation success." },
+  { id: 14, title: "The Intersection of Accreditation and Institutional Strategy", excerpt: "Eric Brichto explores how healthcare education leaders can align accreditation efforts with broader institutional goals, creating synergies that benefit the entire organization." },
+  { id: 15, title: "Data-Driven Decision Making in Accreditation", excerpt: "Leveraging his expertise in regulatory affairs, Eric A. Brichto examines how programs can use data analytics to strengthen their accreditation portfolios and demonstrate outcomes." },
+  { id: 16, title: "The Ten Commandments for Site Visitors", excerpt: "Eric A. Brichto shares the timeless ethical principles that guide accreditation site visitors, originally developed decades ago and still universally relevant today." },
 ];
 
 // Add blog routes
@@ -267,6 +271,119 @@ function generateJsonLd(routePath, meta) {
 }
 
 /**
+ * Generate static HTML content for SEO crawlers based on route
+ */
+function generateStaticContent(routePath, meta) {
+  // Homepage
+  if (routePath === "/") {
+    return `
+        <section>
+          <h2>Expert Accreditation & Compliance Consulting</h2>
+          <p>Led by Eric A. Brichto, Esq., Clarivis Consulting Group provides expert guidance for health sector education programs seeking accreditation, regulatory compliance, and operational excellence.</p>
+          <h3>Our Services</h3>
+          <ul>
+            <li><a href="/services/accreditation">Accreditation Readiness</a> — Self-study support, gap analysis, and strategic planning</li>
+            <li><a href="/services/site-visit">Site Visit Preparation</a> — Mock site visits, faculty coaching, documentation review</li>
+            <li><a href="/services/compliance">Compliance Consulting</a> — Regulatory navigation and policy development</li>
+            <li><a href="/services/leadership">Recruitment & Leadership</a> — Program development and student recruitment</li>
+            <li><a href="/services/training">Training Programs</a> — Faculty and staff accreditation training</li>
+          </ul>
+          <h3>Why Choose Clarivis?</h3>
+          <p>With decades of experience including service as Chief Accreditation Officer at CAHME, Eric A. Brichto brings unmatched expertise in health education accreditation standards, compliance requirements, and program development.</p>
+          <a href="/contact">Schedule a Free Consultation</a>
+        </section>`;
+  }
+
+  // Services pages
+  if (routePath === "/services") {
+    return `
+        <section>
+          <h2>Comprehensive Accreditation & Compliance Services</h2>
+          <ul>
+            <li><a href="/services/accreditation">Accreditation Readiness</a></li>
+            <li><a href="/services/site-visit">Site Visit Preparation</a></li>
+            <li><a href="/services/compliance">Regulatory Compliance</a></li>
+            <li><a href="/services/leadership">Recruitment & Leadership Support</a></li>
+            <li><a href="/services/training">Training Programs</a></li>
+          </ul>
+        </section>`;
+  }
+
+  // About page
+  if (routePath === "/about") {
+    return `
+        <section>
+          <h2>About Eric A. Brichto, Esq.</h2>
+          <p>Eric A. Brichto, Esq. is a licensed attorney and accreditation professional with decades of leadership in health sector education. As the former Chief Accreditation Officer at CAHME, he brings unparalleled expertise to every engagement.</p>
+          <p>Eric founded Clarivis Consulting Group to help health education programs navigate the complexities of accreditation, compliance, and program development with clarity and confidence.</p>
+          <a href="/contact">Contact Eric</a>
+        </section>`;
+  }
+
+  // Blog index
+  if (routePath === "/blog") {
+    const blogLinks = blogPosts.map(p => 
+      `<li><a href="/blog/${p.id}">${p.title}</a> — ${p.excerpt}</li>`
+    ).join('\n            ');
+    return `
+        <section>
+          <h2>Latest Articles by Eric A. Brichto</h2>
+          <ul>
+            ${blogLinks}
+          </ul>
+        </section>`;
+  }
+
+  // Individual blog post
+  if (routePath.startsWith("/blog/")) {
+    return `
+        <section>
+          <p>By Eric A. Brichto, Esq.</p>
+          <p>${meta.description}</p>
+          <a href="/blog">← Back to all articles</a>
+        </section>`;
+  }
+
+  // Government pages
+  if (routePath === "/government") {
+    return `
+        <section>
+          <h2>Government Contract Support Services</h2>
+          <ul>
+            <li><a href="/government/opportunity">Opportunity Identification</a></li>
+            <li><a href="/government/proposal">Proposal Development</a></li>
+            <li><a href="/government/teaming">Teaming & Partnerships</a></li>
+            <li><a href="/government/post-award">Post-Award Support</a></li>
+          </ul>
+        </section>`;
+  }
+
+  // Contact page
+  if (routePath === "/contact") {
+    return `
+        <section>
+          <h2>Get in Touch</h2>
+          <p>Email: <a href="mailto:${SITE_CONFIG.email}">${SITE_CONFIG.email}</a></p>
+          <p>Phone: <a href="tel:${SITE_CONFIG.phone}">${SITE_CONFIG.phone}</a></p>
+          <p>Schedule a free consultation to discuss your accreditation and compliance needs.</p>
+        </section>`;
+  }
+
+  // Pricing page
+  if (routePath === "/pricing") {
+    return `
+        <section>
+          <h2>Service Packages</h2>
+          <p>Transparent pricing for accreditation consulting services. Contact us for a customized quote.</p>
+          <a href="/contact">Request a Quote</a>
+        </section>`;
+  }
+
+  // Default: just show description
+  return `<p>${meta.description}</p>`;
+}
+
+/**
  * Generate the HTML content for a route
  */
 function generateHtml(routePath, meta) {
@@ -351,13 +468,42 @@ ${JSON.stringify(data, null, 6)}
   </head>
 
   <body>
+    <div id="root">
+      <!-- Static HTML for SEO crawlers - replaced by React on hydration -->
+      <header role="banner">
+        <nav aria-label="Main navigation">
+          <a href="/">Clarivis Consulting Group</a>
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/government">Government</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+      <main>
+        <h1>${meta.title.split(" | ")[0]}</h1>
+        <p>${meta.description}</p>
+        ${generateStaticContent(routePath, meta)}
+      </main>
+      <footer role="contentinfo">
+        <p>&copy; ${new Date().getFullYear()} ${SITE_CONFIG.legalName}. All rights reserved.</p>
+        <nav aria-label="Footer navigation">
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/government">Government</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </nav>
+        <p>Contact: <a href="mailto:${SITE_CONFIG.email}">${SITE_CONFIG.email}</a> | <a href="tel:${SITE_CONFIG.phone}">${SITE_CONFIG.phone}</a></p>
+      </footer>
+    </div>
     <noscript>
-      <div style="padding: 2rem; text-align: center;">
-        <h1>JavaScript Required</h1>
-        <p>Please enable JavaScript to use Clarivis Consulting Group website.</p>
-      </div>
+      <style>#root header, #root main, #root footer { display: block; padding: 1rem; max-width: 960px; margin: 0 auto; }</style>
     </noscript>
-    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>`;
@@ -504,13 +650,29 @@ async function prerender() {
   </head>
 
   <body>
-    <noscript>
-      <div style="padding: 2rem; text-align: center;">
-        <h1>JavaScript Required</h1>
-        <p>Please enable JavaScript to use Clarivis Consulting Group website.</p>
-      </div>
-    </noscript>
-    <div id="root"></div>
+    <div id="root">
+      <header role="banner">
+        <nav aria-label="Main navigation">
+          <a href="/">Clarivis Consulting Group</a>
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+      <main>
+        <h1>Clarivis Consulting Group</h1>
+        <p>${routes["/"].description}</p>
+        <nav>
+          <a href="/services">Our Services</a>
+          <a href="/about">About Eric A. Brichto</a>
+          <a href="/blog">Read Our Blog</a>
+          <a href="/contact">Contact Us</a>
+        </nav>
+      </main>
+      <footer role="contentinfo">
+        <p>&copy; ${new Date().getFullYear()} ${SITE_CONFIG.legalName}. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>`;
 
