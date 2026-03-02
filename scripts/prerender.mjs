@@ -628,21 +628,21 @@ async function prerender() {
       gtag('config', 'G-FZP6SPKMK5');
     </script>
 
-    <!-- GitHub Pages SPA redirect script -->
+    <!-- GitHub Pages SPA redirect script (ENCODE path into query string) -->
     <script type="text/javascript">
       (function(l) {
         if (l.hostname === 'clarivisgroup.com') {
           l.replace('https://www.clarivisgroup.com' + l.pathname + l.search + l.hash);
           return;
         }
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
+        var pathSegmentsToKeep = 0;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
       }(window.location))
     </script>
     <link rel="stylesheet" crossorigin href="${cssSrc}">
